@@ -9,6 +9,9 @@ export async function buildAndHostSimpleApp(props: {
 }): Promise<string> {
     // compile dart source to js
     const compiled = await compileComplete(props.dart)
+    if (!compiled.sucess) {
+        throw `compile failed with error ${JSON.stringify(compiled.error, null, 2)}`
+    }
 
     // host js file
     const hosted = await upload({
