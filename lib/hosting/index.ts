@@ -2,10 +2,10 @@
 import { FileHostingRequest, FileHostingResult } from './types';
 import FormData from "form-data"
 import Axios from "axios"
+import { HOSTING_SERVICE_HOST } from '../constants/hosts';
 const axios = Axios.create(
     {
-        baseURL: "https://hosting.bridged.cc/"
-        // baseURL: "http://localhost:3000/dev"
+        baseURL: HOSTING_SERVICE_HOST
     }
 )
 

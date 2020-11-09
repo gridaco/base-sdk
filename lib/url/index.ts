@@ -1,8 +1,9 @@
 import { UrlShortenRequest, UrlShortenResult } from "./types";
 import Axios from "axios"
+import { URL_SERVICE_HOST } from "../constants/hosts";
 
 const axios = Axios.create({
-    baseURL: "https://bridged.cc/"
+    baseURL: URL_SERVICE_HOST
 })
 
 

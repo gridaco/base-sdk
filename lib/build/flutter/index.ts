@@ -2,20 +2,44 @@ import { compileComplete } from "dart-services"
 import { makeShortUrl } from "../../url"
 import { upload } from "../../hosting"
 
-export async function buildAndHostSimpleApp(props: {
+export interface AppBuildResult {
+    id: string,
+    name?: string,
+    js?: string
+}
+
+
+export async function compileFlutterApp(props: {
     dart: string,
     id: string,
-    short?: boolean
-}): Promise<string> {
+}): Promise<AppBuildResult> {
     // compile dart source to js
     const compiled = await compileComplete(props.dart)
     if (!compiled.sucess) {
         throw `compile failed with error ${JSON.stringify(compiled.error, null, 2)}`
     }
 
+    return {
+        id: props.id,
+        js: compiled.result
+    }
+}
+
+
+
+export async function buildAndHostSimpleApp(props: {
+    dart: string,
+    id: string,
+    short?: boolean
+}): Promise<string> {
+    const compiled = await compileFlutterApp({
+        dart: props.dart,
+        id: props.id
+    })
+
     // host js file
     const hosted = await upload({
-        file: compiled.result,
+        file: compiled.js,
         name: props.id
     })
 
