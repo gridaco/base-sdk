@@ -1,4 +1,4 @@
-import { encodeQueryData } from "lib/utils/url.utils";
+import { encodeQueryData } from "../../utils/url.utils";
 
 interface QuickLookRequestFlutter {
     flutterCode: string
