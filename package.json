@@ -18,7 +18,7 @@
   "dependencies": {
     "aws-sdk": "^2.783.0",
     "axios": "^0.21.0",
-    "dart-services": "^0.2.1",
+    "dart-services": "^0.2.2",
     "form-data": "^3.0.0"
   },
   "files": [
