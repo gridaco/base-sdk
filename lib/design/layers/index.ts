@@ -17,7 +17,7 @@ export interface TransportLayer<T> {
     id: string
     index: number
     type: string
-    src: T
+    data: T
     x: number
     y: number
     width: number
