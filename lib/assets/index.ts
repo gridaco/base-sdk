@@ -20,10 +20,24 @@ export enum AssetType {
 export interface Asset {
     id: string
     name: string
+    key?: string
     type: AssetType
     value: string
     tags?: string[]
 }
+
+
+export interface VariantAsset {
+    id: string
+    name: string
+    key: string
+    description: string
+    projectId: string
+    type: AssetType
+    tags?: string[]
+    assets: Map<string, Asset>
+}
+
 
 /**
  * request to register asset to cloud sent by the client
@@ -32,7 +46,25 @@ export interface AssetRegisterRequest {
     name: string
     type: AssetType
     value: string
+    key: string
     tags?: string[]
+}
+
+
+
+export interface NestedAssetRegisterRequest {
+    name: string
+    value: string
+    tags?: string[]
+}
+
+export interface VariantAssetRegisterRequest {
+    key: string
+    name: string
+    type: AssetType
+    description: string
+    tags: string[]
+    initialAssets?: Map<string, NestedAssetRegisterRequest>
 }
 
 /**
