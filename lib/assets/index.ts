@@ -17,7 +17,7 @@ export enum AssetType {
 /**
  * the asset transport layer
  */
-export interface Asset {
+export interface RawAsset {
     id: string
     name: string
     key?: string
@@ -35,14 +35,14 @@ export interface VariantAsset {
     projectId: string
     type: AssetType
     tags?: string[]
-    assets: Map<string, Asset>
+    assets: Map<string, RawAsset>
 }
 
 
 /**
  * request to register asset to cloud sent by the client
  */
-export interface AssetRegisterRequest {
+export interface RawAssetRegisterRequest {
     name: string
     type: AssetType
     value: string
@@ -68,6 +68,12 @@ export interface VariantAssetRegisterRequest {
 }
 
 /**
+ * response of register variant asset request returned by service server
+ */
+export interface VariantAssetRegisterResponse extends ServiceResponse<VariantAsset> { }
+
+
+/**
  * response of register asset request returned by service server
  */
-export interface AssetRegisterResponse extends ServiceResponse<Asset> { }
+export interface RawAssetRegisterResponse extends ServiceResponse<RawAsset> { }
