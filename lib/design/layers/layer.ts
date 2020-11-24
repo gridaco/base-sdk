@@ -1,4 +1,5 @@
-interface Layer {
+
+export interface Layer {
     id: string
     name: string
     path: string

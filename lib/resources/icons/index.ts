@@ -1,4 +1,4 @@
-import { IconConfig } from "../../types"
+import { IconConfig } from "@reflect.bridged.xyz/core"
 import { CORS_ANYWHERE } from "../../cors"
 import Axios from "axios"
 
