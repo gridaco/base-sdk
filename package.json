@@ -8,7 +8,8 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "postpublish": "tsc"
+    "postpublish": "tsc",
+    "postinstall": "tsc"
   },
   "devDependencies": {
     "@types/node": "^14.14.5",
