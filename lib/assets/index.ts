@@ -1,17 +1,18 @@
 
-import { ServiceResponse } from "../abstract"
+import { ServiceResponse } from "../services-abstract"
 
 /**
  * the type of the managed asset. default by file / text / color if parsed, if non fallbacked to file with no extension.
  */
 export enum AssetType {
-    uri = "uri",
-    text = "text",
-    image = "image",
-    icon = "icon",
-    illust = "illust",
-    color = "color",
-    file = "file",
+    uri = "URI",
+    text = "TEXT",
+    image = "IMAGE",
+    icon = "ICON",
+    illust = "ILLUST",
+    color = "COLOR",
+    file = "FILE",
+    other = "UNKNOWN",
 }
 
 /**

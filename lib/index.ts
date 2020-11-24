@@ -1,4 +1,4 @@
-export * from "./abstract"
+export * from "./services-abstract"
 export * from "./assets"
 export * from "./asset-repository"
 export * from "./url"

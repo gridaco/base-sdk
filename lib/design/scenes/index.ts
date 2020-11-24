@@ -1,1 +1,1 @@
-export * from "./scene-type"
+export * from "./storable-scene-type"

@@ -2,7 +2,7 @@
  * the type of managed scenes.
  * (WARNING FOR DEVELOPERS) the enum value is matched with [services](https://github.com/bridgedxyz/services)'s scene-store db table value. caution on making changes on the value. (feel free to change the enum key)
  */
-export enum SceneType {
+export enum StorableSceneType {
     /**
      * the screen, or state containing unique route.
      * the screen size variant or screen state variant will be handled as alias, it will still be marked as screen.
