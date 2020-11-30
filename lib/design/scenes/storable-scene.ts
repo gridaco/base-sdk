@@ -8,16 +8,6 @@ export interface StorableScene {
     id: string
 
     /**
-     * the id of project this scene is assosiated with.
-     */
-    projectId: string
-
-    /**
-     * the id of this scene's origin design file
-     */
-    fileId: string
-
-    /**
      * the id of this scene's origin design file's node of this content
      */
     nodeId: string
@@ -32,13 +22,10 @@ export interface StorableScene {
      */
     sceneType: StorableSceneType
 
-
     /**
      * the route of this scene, used for screen.
      */
     route?: string
-
-    path?: string
 
     /**
      * name of this layer described by designer, defaults to the node's name, can be overriden through the console.
