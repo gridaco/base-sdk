@@ -1,5 +1,6 @@
 import { IImageRepository } from "../../asset-repository"
-import { StorableLayer } from "../layers/storable-layer"
+import { StorableLayer, StorableLayerData } from "../layers/storable-layer"
+import { StorableLayerType } from "../layers/storable-layer-type"
 
 /**
  * for transporting vanilla elements
@@ -9,18 +10,18 @@ export interface VanillaScreenTransport {
     width: number
     height: number
     project: string
-    elements: Array<TransportLayer<any>>
+    elements: Array<TransportLayer>
     repository: IImageRepository<any>
 }
 
 /**
  * the single layer used for transportation as vanilla design
  */
-export interface TransportLayer<T> extends StorableLayer<T> {
+export interface TransportLayer extends StorableLayer {
     id: string
     index: number
-    type: string
-    data: T
+    type: StorableLayerType
+    data: StorableLayerData
     x: number
     y: number
     width: number
