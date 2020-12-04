@@ -10,7 +10,7 @@ export interface StorableLayer {
     /**
     * node id of this layer originated from design file
     */
-    id: string
+    nodeId: string
 
     /**
     * un-managed name of this layer. usually if the layer is unmanaged, it will give us name such like "Group 2" and "Rectangle 13".
