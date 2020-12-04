@@ -43,6 +43,16 @@ export interface StorableScene {
      */
     tags?: string[]
 
+    /**
+     * the id of the scene component, linked to this layer. unique id genenated from the server
+     */
+    componentId?: string
+
+    /**
+     * the id of scene component, as the node id from the design source.
+     */
+    componentNodeId?: string
+
 
     /**
      * alias for containing many variants
