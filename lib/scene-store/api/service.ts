@@ -4,7 +4,7 @@ import { SCENE_STORE_SERVICE_HOST } from "../../constants/hosts";
 import { SceneRegisterRequest } from "./requests";
 
 const axios = Axios.create({
-    baseURL: SCENE_STORE_SERVICE_HOST
+    baseURL: "http://localhost:3000/dev"// SCENE_STORE_SERVICE_HOST
 })
 export class SceneStoreService {
     constructor(readonly projectId: string, readonly fileId: string) { }

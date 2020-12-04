@@ -12,6 +12,8 @@ export interface VanillaScreenTransport {
     project: string
     elements: Array<TransportLayer>
     repository: IImageRepository<any>
+    background?: string
+    backgroundColor: string
 }
 
 /**

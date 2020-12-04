@@ -5,7 +5,7 @@ export interface StorableScene {
     /**
        * the unique id on the database
        */
-    id: string
+    id?: string
 
     /**
      * the id of this scene's origin design file's node of this content
@@ -90,7 +90,11 @@ export interface StorableScene {
 
     /**
      * the background of this scene. can be color or asset uri.
+     */
+    background?: string
+
+    /**
      * in most cases, it will be color. #FFFFFF
      */
-    background: string
+    backgroundColor: string
 }
