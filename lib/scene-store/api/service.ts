@@ -1,4 +1,3 @@
-import { StorableSceneType } from "../../design";
 import Axios from "axios"
 import { SCENE_STORE_SERVICE_HOST } from "../../constants/hosts";
 import { SceneRegisterRequest } from "./requests";
