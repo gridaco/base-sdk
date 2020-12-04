@@ -18,5 +18,5 @@ export enum StorableSceneType {
     /**
      * many designers make component and screen documentations inside the design file. the docs type refers to this, not the design document itself.
      */
-    docs = "DOCS"
+    blueprint = "BLUEPRINT"
 }
