@@ -20,7 +20,7 @@ export interface VanillaScreenTransport {
  * the single layer used for transportation as vanilla design
  */
 export interface TransportLayer extends StorableLayer {
-    id: string
+    nodeId: string
     index: number
     type: StorableLayerType
     data: StorableLayerData
