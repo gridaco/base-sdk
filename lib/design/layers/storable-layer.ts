@@ -1,5 +1,4 @@
-import { TextManifest } from "@reflect.bridged.xyz/core";
-import { ImageManifest } from "aws-sdk/clients/ecr";
+import { TextManifest, ImageManifest } from "@reflect.bridged.xyz/core";
 import { StorableLayerType } from "./storable-layer-type";
 
 /**

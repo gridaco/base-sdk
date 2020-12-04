@@ -14,7 +14,30 @@ export enum StorableLayerType {
     group = "GROUP",
 
     /**
-     * single layer holding its data only.
+     * single layer holding its data only. interpreted as graphics (image/vector)
+     * also known as frame / ellipse / rectangle
      */
-    vanilla = "VANILLA"
+    vanilla = "VANILLA",
+
+    /**
+     * A pure text layer with ReflectTextManifest data
+     */
+    text = "TEXT",
+
+    /**
+     * A pure line layer with ReflectLineManifest data
+     */
+    line = "LINE",
+
+    /**
+     * A pure vector (grouped) asset
+     * supports svg
+     */
+    vector = "VECTOR",
+
+    /**
+     * A pure bitmap image containing layer.
+     * supports png
+     */
+    image = "IMAGE"
 }
