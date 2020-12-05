@@ -1,10 +1,10 @@
-import { TextManifest, ImageManifest } from "@reflect.bridged.xyz/core";
+import { TextManifest, ImageManifest, CGRectManifest } from "@reflect.bridged.xyz/core/lib";
 import { StorableLayerType } from "./storable-layer-type";
 
 /**
  * the data type that storable layer can hold. at this moment, text or image manifest data.
  */
-export type StorableLayerData = TextManifest | ImageManifest
+export type StorableLayerData = TextManifest | ImageManifest | CGRectManifest
 
 export interface StorableLayer {
     /**

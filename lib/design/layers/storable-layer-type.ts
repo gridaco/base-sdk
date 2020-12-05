@@ -39,5 +39,12 @@ export enum StorableLayerType {
      * A pure bitmap image containing layer.
      * supports png
      */
-    image = "IMAGE"
+    image = "IMAGE",
+
+
+    /**
+     * A rectangle with all property set to be drawn.
+     * this is often used when frame is converted for background usage as rectangle
+     */
+    rect = "RECT",
 }
