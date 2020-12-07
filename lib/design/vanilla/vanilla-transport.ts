@@ -1,19 +1,15 @@
 import { IImageRepository } from "../../asset-repository"
 import { StorableLayer, StorableLayerData } from "../layers/storable-layer"
 import { StorableLayerType } from "../layers/storable-layer-type"
+import { StorableScene } from "../scenes"
 
 /**
  * for transporting vanilla elements
  */
-export interface VanillaScreenTransport {
+export interface VanillaSceneTransport {
     id: string
-    width: number
-    height: number
-    project: string
-    elements: Array<TransportLayer>
+    scene: StorableScene
     repository: IImageRepository<any>
-    background?: string
-    backgroundColor: string
 }
 
 /**
