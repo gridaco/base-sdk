@@ -2,7 +2,6 @@
   "name": "@bridged.xyz/client-sdk",
   "version": "0.0.1-14",
   "description": "bridged's service access api node wrapper",
-  "main": "index.ts",
   "repository": "https://github.com/bridgedxyz/services",
   "author": "bridged.xyz (softmarshmallow)",
   "license": "MIT",

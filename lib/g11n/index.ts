@@ -1,4 +1,5 @@
-
+export * from "./validators"
+export * from "./placeholder"
 
 export async function initTextGlobalizationWorkingTree(sceneId: string): Promise<TextGlobalizationWorkingTree> {
     // load variables with namespace
