@@ -44,10 +44,10 @@ export interface VariantAsset {
  * request to register asset to cloud sent by the client
  */
 export interface RawAssetRegisterRequest {
-    name: string
+    name?: string
     type: AssetType
     value: string
-    key: string
+    key?: string
     tags?: string[]
 }
 
@@ -66,6 +66,14 @@ export interface VariantAssetRegisterRequest {
     description: string
     tags: string[]
     initialAssets?: Map<string, NestedAssetRegisterRequest>
+}
+
+/**
+ * create and link new raw asset and link it to existing variant asset
+ */
+export interface VariantAssetAddRequest {
+    variantId: string
+    asset: RawAssetRegisterRequest
 }
 
 /**
