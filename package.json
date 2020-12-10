@@ -5,6 +5,7 @@
   "repository": "https://github.com/bridgedxyz/services",
   "author": "bridged.xyz (softmarshmallow)",
   "license": "MIT",
+  "main": "dist/index.js",
   "private": false,
   "scripts": {
     "postpublish": "tsc",
