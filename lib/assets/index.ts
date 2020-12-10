@@ -60,11 +60,11 @@ export interface NestedAssetRegisterRequest {
 }
 
 export interface VariantAssetRegisterRequest {
-    key: string
-    name: string
+    key?: string
+    name?: string
     type: AssetType
-    description: string
-    tags: string[]
+    description?: string
+    tags?: string[]
     initialAssets?: Map<string, NestedAssetRegisterRequest>
 }
 
