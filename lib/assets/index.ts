@@ -51,6 +51,13 @@ export interface RawAssetRegisterRequest {
     tags?: string[]
 }
 
+export interface RawAssetUpdateRequest {
+    id: string
+    newName?: string
+    newType?: AssetType
+    newValue?: string
+    newTags?: string[]
+}
 
 
 export interface NestedAssetRegisterRequest {
@@ -67,6 +74,16 @@ export interface VariantAssetRegisterRequest {
     tags?: string[]
     initialAssets: Map<string, NestedAssetRegisterRequest>
 }
+
+
+/**
+ * request interface for updaiting variant n variant asset (updates raw asset liked to the target variant asset)
+ */
+export interface VariantUpdateRequest {
+    id: string,
+    newValue: string
+}
+
 
 /**
  * create and link new raw asset and link it to existing variant asset

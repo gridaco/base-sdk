@@ -22,3 +22,13 @@ export interface GlobalizedKeyRegisterRequest {
 
     initialVariants: Map<string, NestedAssetRegisterRequest>
 }
+
+
+/**
+ * updates (puts) translation (text asset variant) to existing key
+ */
+export interface TranslationUpdateRequest {
+    keyId: string,
+    locale: string,
+    newText: string
+}
