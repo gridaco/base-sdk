@@ -20,7 +20,7 @@ export enum AssetType {
  */
 export interface RawAsset {
     id: string
-    name: string
+    name?: string
     key?: string
     type: AssetType
     value: string
@@ -54,7 +54,7 @@ export interface RawAssetRegisterRequest {
 
 
 export interface NestedAssetRegisterRequest {
-    name: string
+    name?: string
     value: string
     tags?: string[]
 }
@@ -65,7 +65,7 @@ export interface VariantAssetRegisterRequest {
     type: AssetType
     description?: string
     tags?: string[]
-    initialAssets?: Map<string, NestedAssetRegisterRequest>
+    initialAssets: Map<string, NestedAssetRegisterRequest>
 }
 
 /**

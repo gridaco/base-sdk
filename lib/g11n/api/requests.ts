@@ -1,4 +1,4 @@
-import { AssetType } from "../../assets";
+import { AssetType, NestedAssetRegisterRequest } from "../../assets";
 
 export interface GlobalizedKeyRegisterRequest {
     /**
@@ -19,4 +19,6 @@ export interface GlobalizedKeyRegisterRequest {
      * if embeddable 'changed' to false, all the referening assets will be replaced with last known value & localse of this key's asset.
      */
     embeddable?: boolean
+
+    initialVariants: Map<string, NestedAssetRegisterRequest>
 }
