@@ -1,7 +1,6 @@
 import Axios from "axios"
 import { ASSET_SERVICE_HOST } from "../../constants/hosts"
-import { VariantAsset, VariantAssetRegisterRequest, VariantAssetRegisterResponse, VariantUpdateRequest } from ".."
-import { ServiceResponse } from "../../services-abstract/response"
+import { VariantAddRequest, VariantAsset, VariantAssetRegisterRequest, VariantAssetRegisterResponse, VariantPutRequest, VariantUpdateRequest } from ".."
 
 const VARIANT_ASSETS_ROUTE = "variant-assets"
 const axios = Axios.create({
@@ -14,29 +13,26 @@ export async function registerVariantAsset(projectId: string, req: VariantAssetR
     return resp.data as VariantAssetRegisterResponse
 }
 
-export async function getVariantAsset(projectId: string, id: string): Promise<ServiceResponse<VariantAsset>> {
+export async function getVariantAsset(projectId: string, id: string): Promise<VariantAsset> {
     const resp = await axios.get(`${VARIANT_ASSETS_ROUTE}/${id}`)
-    return resp.data as ServiceResponse<VariantAsset>
+    return resp.data as VariantAsset
 }
 
-/**
- * 
- * @param projectId 
- */
-export async function putVariant(projectId: string, variantAssetId: string, variantKey: string) {
-    // TODO - make body from request interface
-    const body = {
-
+export async function putVariant(projectId: string, request: VariantPutRequest): Promise<VariantAsset> {
+    try {
+        const resp = await axios.put(`${VARIANT_ASSETS_ROUTE}/${request.variantAssetId}/variants/${request.variant}`, request.asset)
+        return resp.data as VariantAsset
+    } catch (_) {
+        console.error('an unkwon error occured while performing putVariant', _)
     }
-    const resp = await axios.put(`${VARIANT_ASSETS_ROUTE}/${variantAssetId}/variants`, body)
 }
 
-export async function addAvariant() {
-    // FIXME
-    await axios.post(`${VARIANT_ASSETS_ROUTE}/`)
+export async function addAvariant(projectId: string, request: VariantAddRequest): Promise<VariantAsset> {
+    const resp = await axios.post(`${VARIANT_ASSETS_ROUTE}/${request.variantAssetId}/variants/${request.variant}`, request.asset)
+    return resp.data as VariantAsset
 }
 
-export async function updateVariant(projectId: string, request: VariantUpdateRequest) {
-    // FIXME  - this is wrong configuration
-    const resp = await axios.patch(`${VARIANT_ASSETS_ROUTE}/${request.variantAssetId}/variants/`)
+export async function updateVariant(projectId: string, request: VariantUpdateRequest): Promise<VariantAsset> {
+    const resp = await axios.patch(`${VARIANT_ASSETS_ROUTE}/${request.variantAssetId}/variants/${request.variant}`, request.asset)
+    return resp.data as VariantAsset
 }

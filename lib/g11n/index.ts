@@ -1,4 +1,4 @@
-import { RawAsset } from "lib/assets"
+import { RawAsset } from "../assets"
 
 export * from "./validators"
 export * from "./placeholder"
