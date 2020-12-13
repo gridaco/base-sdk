@@ -1,3 +1,5 @@
+import { RawAsset } from "../assets"
+
 export * from "./validators"
 export * from "./placeholder"
 
@@ -58,7 +60,7 @@ export class Locale implements ILocale {
  *  K = locale string
  *  V = value of locale key
  */
-type Translation = Map<string, string>
+type Translations = Map<string, RawAsset>
 
 
 /**
@@ -120,7 +122,7 @@ export interface IGlobalizedCreateInput {
 export interface IGlobalizedKey {
     id: string
     key: string
-    translations: Array<Translation>
+    translations: Translations
 }
 
 /**
@@ -129,7 +131,7 @@ export interface IGlobalizedKey {
 export class GlobalizedKey implements IGlobalizedKey {
     id: string;
     key: string;
-    translations: Translation[];
+    translations: Translations;
 
     constructor(props: IGlobalizedKey) {
         this.id = props.id
@@ -152,7 +154,7 @@ export interface IGlobalizedVariable {
     id: string
     namespace: string
     name: string
-    translations: Array<Translation>
+    translations: Array<Translations>
 }
 
 
@@ -160,7 +162,7 @@ export class GlobalizedVariable implements IGlobalizedVariable {
     id: string;
     name: string;
     namespace: string
-    translations: Translation[];
+    translations: Translations[];
 
     constructor(props: IGlobalizedVariable) {
         this.id = props.id
