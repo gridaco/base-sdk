@@ -30,17 +30,17 @@ export interface GlobalizedKeyRegisterRequest {
 export interface TextTranslationUpdateRequest {
     keyId: string,
     locale: string,
-    newText: string
+    value: string
 }
 
 export interface TextTranslationAddRequest {
     keyId: string,
     locale: string,
-    text: string
+    value: string
 }
 
 export interface TextTranslationPutRequest {
     keyId: string,
     locale: string,
-    text: string
+    value: string
 }
