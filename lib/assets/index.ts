@@ -53,14 +53,14 @@ export interface RawAssetRegisterRequest {
 
 export interface RawAssetUpdateRequest {
     id: string
-    newName?: string
-    newType?: AssetType
-    newValue?: string
-    newTags?: string[]
+    name?: string
+    type?: AssetType
+    value?: string
+    tags?: string[]
 }
 
 
-export interface NestedAssetRegisterRequest {
+export interface NestedAssetPutRequest {
     name?: string
     value: string
     tags?: string[]
@@ -72,17 +72,30 @@ export interface VariantAssetRegisterRequest {
     type: AssetType
     description?: string
     tags?: string[]
-    initialAssets: Map<string, NestedAssetRegisterRequest>
+    initialAssets: Map<string, NestedAssetPutRequest>
 }
 
+export interface VariantAddRequest {
+    variantAssetId: string
+    variant: string
+    asset: NestedAssetPutRequest
+}
 
 /**
  * request interface for updaiting variant n variant asset (updates raw asset liked to the target variant asset)
  */
 export interface VariantUpdateRequest {
-    id: string,
-    newValue: string
+    variantAssetId: string
+    variant: string
+    asset: NestedAssetPutRequest
 }
+
+export interface VariantPutRequest {
+    variantAssetId: string
+    variant: string
+    asset: NestedAssetPutRequest
+}
+
 
 
 /**

@@ -1,4 +1,4 @@
-import { AssetType, NestedAssetRegisterRequest } from "../../assets";
+import { AssetType, NestedAssetPutRequest } from "../../assets";
 
 export interface GlobalizedKeyRegisterRequest {
     /**
@@ -20,15 +20,27 @@ export interface GlobalizedKeyRegisterRequest {
      */
     embeddable?: boolean
 
-    initialVariants: Map<string, NestedAssetRegisterRequest>
+    initialVariants: Map<string, NestedAssetPutRequest>
 }
 
 
 /**
  * updates (puts) translation (text asset variant) to existing key
  */
-export interface TranslationUpdateRequest {
+export interface TextTranslationUpdateRequest {
     keyId: string,
     locale: string,
     newText: string
+}
+
+export interface TextTranslationAddRequest {
+    keyId: string,
+    locale: string,
+    text: string
+}
+
+export interface TextTranslationPutRequest {
+    keyId: string,
+    locale: string,
+    text: string
 }
