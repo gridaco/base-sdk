@@ -1,9 +1,11 @@
 import Axios from "axios"
-import { DESIGN_STORE_SERVICE_HOST } from "../../constants/hosts";
+import { DESIGN_STORE_SERVICE_HOST, LEGACY_SCENE_STORE_SERVICE_HOST } from "../../constants/hosts";
 import { SceneRegisterRequest } from "./requests";
 
 const axios = Axios.create({
-    baseURL: DESIGN_STORE_SERVICE_HOST
+    baseURL: LEGACY_SCENE_STORE_SERVICE_HOST,
+    // TODO - replace host name when ready
+    //DESIGN_STORE_SERVICE_HOST
 })
 export class SceneStoreService {
     constructor(readonly projectId: string, readonly fileId: string) { }
