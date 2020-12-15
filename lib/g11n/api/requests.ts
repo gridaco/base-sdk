@@ -20,7 +20,18 @@ export interface GlobalizedKeyRegisterRequest {
      */
     embeddable?: boolean
 
-    initialVariants: Map<string, NestedAssetPutRequest>
+    initialTranslations: Map<string, NestedAssetPutRequest>
+}
+
+export interface GlobalizedTextKeyRegisterRequest {
+    /**
+    * name of the key, commonly said as just "key" on the client side.
+    */
+    keyName: string
+
+    embeddable: boolean
+
+    initialTranslations: Map<string, NestedAssetPutRequest>
 }
 
 

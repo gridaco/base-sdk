@@ -1,24 +1,37 @@
 import Axios from "axios"
 import { G11N_SERVICE_HOST } from "../../constants/hosts"
 import { GlobalizedKeyRegisterRequest, TextTranslationPutRequest } from "./requests"
-
+import { GlobalizedKeyRegisterResponse } from "./responses"
 const axios = Axios.create({
     baseURL: G11N_SERVICE_HOST
 })
 
 // TODO
-// implement
 // add docs
 export class G11nService {
-    constructor() {
-        throw 'not implemented'
+    constructor(readonly projecId: string) {
+    }
+
+    async registerKey(request: GlobalizedKeyRegisterRequest): Promise<GlobalizedKeyRegisterResponse> {
+        return await registerTranslationKey(this.projecId, request)
+    }
+
+
+    async updateKeyName(id: string, newKeyName: string) {
+        updateKeyName(id, {
+            keyName: newKeyName
+        })
+    }
+
+    async putTextTranslation(request: TextTranslationPutRequest) {
+        return await putTextTranslation(this.projecId, request)
     }
 }
 
 
-export async function registerTranslationKey(projectId: string, request: GlobalizedKeyRegisterRequest) {
+export async function registerTranslationKey(projectId: string, request: GlobalizedKeyRegisterRequest): Promise<GlobalizedKeyRegisterResponse> {
     const resp = await axios.post(`keys/`, request)
-    return resp.data
+    return resp.data as GlobalizedKeyRegisterResponse
 }
 
 export async function updateKeyName(id: string, request: {
