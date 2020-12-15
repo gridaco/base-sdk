@@ -26,6 +26,10 @@ export class G11nService {
     async putTextTranslation(request: TextTranslationPutRequest) {
         return await putTextTranslation(this.projecId, request)
     }
+
+    async fetchTranslation(id: string) {
+        return await fetchTextTranslation(id)
+    }
 }
 
 
@@ -45,5 +49,10 @@ export async function putTextTranslation(projectId: string, request: TextTransla
     const resp = await axios.put(`translations/${request.keyId}/locales/${request.locale}`, {
         value: request.value
     })
+    return resp.data
+}
+
+export async function fetchTextTranslation(id: string) {
+    const resp = await axios.get(`translations/${id}`)
     return resp.data
 }

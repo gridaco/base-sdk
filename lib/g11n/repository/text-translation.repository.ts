@@ -30,4 +30,8 @@ export class TextTranslationRepository {
     async putTranslation(request: TextTranslationPutRequest) {
         return await this.api.putTextTranslation(request)
     }
+
+    async fetchTranslation(id: string) {
+        return await this.api.fetchTranslation(id)
+    }
 }

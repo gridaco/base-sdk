@@ -43,6 +43,17 @@ export class DesignGlobalizationRepository {
         return key
     }
 
+    async fetchTranslation(layerId: string) {
+        const keyId = this.layerKeyMapRepository.getLayerKey(layerId)
+        if (keyId) {
+            const translation = await this.textTranslationRepository.fetchTranslation(keyId!)
+            console.log(`fetched translation for layer ${layerId}`, translation)
+            return translation
+        }
+
+        return undefined
+    }
+
     async fetchKeys() {
         throw 'not implemented'
     }
