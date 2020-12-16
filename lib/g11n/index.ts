@@ -3,27 +3,27 @@ import { RawAsset } from "../assets"
 export * from "./validators"
 export * from "./placeholder"
 
-export async function initTextGlobalizationWorkingTree(sceneId: string): Promise<TextGlobalizationWorkingTree> {
-    // load variables with namespace
-    // load texts with scene id
-    // load keys with text[]
+// export async function initTextGlobalizationWorkingTree(sceneId: string): Promise<TextGlobalizationWorkingTree> {
+//     // load variables with namespace
+//     // load texts with scene id
+//     // load keys with text[]
 
-    return new TextGlobalizationWorkingTree()
-}
+//     return new TextGlobalizationWorkingTree()
+// }
 
 
-class TextGlobalizationWorkingTree {
-    sceneName: string
-    sceneId: string
-    locales: Array<Locale>
-    texts: Array<GlobalizedText>
-    keys: Array<GlobalizedKey>
-    variables: Array<GlobalizedVariable>
+// class TextGlobalizationWorkingTree {
+//     sceneName: string
+//     sceneId: string
+//     locales: Array<Locale>
+//     texts: Array<GlobalizedText>
+//     keys: Array<GlobalizedKey>
+//     variables: Array<GlobalizedVariable>
 
-    constructor() {
+//     constructor() {
 
-    }
-}
+//     }
+// }
 
 
 /**
@@ -75,38 +75,38 @@ export interface IGlobalizedText {
 
 
 
-export class GlobalizedText implements IGlobalizedText {
-    id: string;
-    path: string
-    name: string
-    key: GlobalizedKey;
+// export class GlobalizedText implements IGlobalizedText {
+//     id: string;
+//     path: string
+//     name: string
+//     key: GlobalizedKey;
 
-    constructor(props: IGlobalizedText) {
-        this.id = props.id
-        this.path = props.path
-        this.name = props.name
-        this.key = new GlobalizedKey(props.key)
-    }
+//     constructor(props: IGlobalizedText) {
+//         this.id = props.id
+//         this.path = props.path
+//         this.name = props.name
+//         this.key = new GlobalizedKey(props.key)
+//     }
 
-    switchKey(key: GlobalizedKey): this {
-        this.key = key
-        return this;
-    }
+//     switchKey(key: GlobalizedKey): this {
+//         this.key = key
+//         return this;
+//     }
 
-    async createAndSwitchKey(input: IGlobalizedCreateInput): Promise<this> {
-        const newKey = await GlobalizedKeyRepository.createNewKey(input)
-        return this.switchKey(newKey)
-    }
+//     async createAndSwitchKey(input: IGlobalizedCreateInput): Promise<this> {
+//         const newKey = await GlobalizedKeyRepository.createNewKey(input)
+//         return this.switchKey(newKey)
+//     }
 
-    get displayContent(): string {
-        // TODO
-        return 'display content of built string'
-    }
+//     get displayContent(): string {
+//         // TODO
+//         return 'display content of built string'
+//     }
 
-    get templateContent(): string {
-        return 'display content with {template} string'
-    }
-}
+//     get templateContent(): string {
+//         return 'display content with {template} string'
+//     }
+// }
 
 
 /**
@@ -181,28 +181,28 @@ interface IRepository<T> {
 /**
  * 
  */
-export class GlobalizedKeyRepository implements IRepository<GlobalizedKey>{
+// export class GlobalizedKeyRepository implements IRepository<GlobalizedKey>{
 
-    static async createNewKey(input: IGlobalizedCreateInput): Promise<GlobalizedKey> {
-        // TODO
-        return
-    }
+//     static async createNewKey(input: IGlobalizedCreateInput): Promise<GlobalizedKey> {
+//         // TODO
+//         return
+//     }
 
-    static async changeKeyName(key: GlobalizedKey, newName: string) {
+//     static async changeKeyName(key: GlobalizedKey, newName: string) {
 
-    }
+//     }
 
-    async fetchById(id: string): Promise<GlobalizedKey> {
-        throw new Error("Method not implemented.");
-    }
-}
+//     async fetchById(id: string): Promise<GlobalizedKey> {
+//         throw new Error("Method not implemented.");
+//     }
+// }
 
 
-export class GlobalizedTextRepository implements IRepository<GlobalizedText>{
-    async fetchById(id: string): Promise<GlobalizedText> {
-        throw new Error("Method not implemented.");
-    }
-}
+// export class GlobalizedTextRepository implements IRepository<GlobalizedText>{
+//     async fetchById(id: string): Promise<GlobalizedText> {
+//         throw new Error("Method not implemented.");
+//     }
+// }
 
 
 /**
