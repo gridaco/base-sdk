@@ -203,3 +203,16 @@ export class GlobalizedTextRepository implements IRepository<GlobalizedText>{
         throw new Error("Method not implemented.");
     }
 }
+
+
+/**
+ * design layer and translation key mapping for client side usage.
+ * translation contains nested translation data.
+ */
+export interface LayerTranslation {
+    sceneId: string,
+    layerId: string,
+    keyId: string
+    projectId: string,
+    translation: IGlobalizedKey
+}

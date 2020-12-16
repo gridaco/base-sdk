@@ -1,3 +1,4 @@
+import { LayerTranslation } from "..";
 import { GlobalizedKeyRegisterRequest, GlobalizedTextKeyRegisterRequest, TextTranslationPutRequest } from "../api";
 import { LayerKeyMapRepository } from "./layer-key-map.repository";
 import { TextTranslationRepository } from "./text-translation.repository";
@@ -15,8 +16,6 @@ export class DesignGlobalizationRepositoriesStore {
     static find(sceneId: string): DesignGlobalizationRepository {
         return this.repositories.find(r => r.sceneId == sceneId)!
     }
-
-
 }
 
 
@@ -25,16 +24,12 @@ export class DesignGlobalizationRepository {
     private readonly layerKeyMapRepository: LayerKeyMapRepository
     constructor(readonly projectId: string, readonly sceneId: string) {
         this.textTranslationRepository = new TextTranslationRepository(projectId)
-        this.layerKeyMapRepository = new LayerKeyMapRepository(sceneId)
-    }
-
-    async registerKey(layerId: string, request: GlobalizedKeyRegisterRequest) {
-        throw 'not implemented'
+        this.layerKeyMapRepository = new LayerKeyMapRepository(projectId, sceneId)
     }
 
     async registerTextKey(layerId: string, request: GlobalizedTextKeyRegisterRequest) {
         const key = await this.textTranslationRepository.registerKey(request)
-        this.layerKeyMapRepository.registerMap(layerId, key.id)
+        this.layerKeyMapRepository.putMap(layerId, key.id)
         return key
     }
 
@@ -44,9 +39,9 @@ export class DesignGlobalizationRepository {
     }
 
     async fetchTranslation(layerId: string) {
-        const keyId = this.layerKeyMapRepository.getLayerKey(layerId)
-        if (keyId) {
-            const translation = await this.textTranslationRepository.fetchTranslation(keyId!)
+        const lt = await this.layerKeyMapRepository.fetchLayerTranslation(layerId)
+        if (lt) {
+            const translation = lt.translation
             console.log(`fetched translation for layer ${layerId}`, translation)
             return translation
         }
@@ -54,11 +49,11 @@ export class DesignGlobalizationRepository {
         return undefined
     }
 
-    async fetchKeys() {
-        throw 'not implemented'
+    async fetchKeys(): Promise<ReadonlyArray<string>> {
+        return (await this.layerKeyMapRepository.fetchTranslations()).map((e) => e.keyId)
     }
 
-    async fetchTranslations() {
-        throw 'not implemented'
+    async fetchTranslations(): Promise<ReadonlyArray<LayerTranslation>> {
+        return await this.layerKeyMapRepository.fetchTranslations()
     }
 }

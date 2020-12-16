@@ -1,4 +1,5 @@
 import Axios from "axios"
+import { LayerTranslation } from ".."
 import { G11N_SERVICE_HOST } from "../../constants/hosts"
 import { GlobalizedKeyRegisterRequest, TextTranslationPutRequest } from "./requests"
 import { GlobalizedKeyRegisterResponse } from "./responses"
@@ -54,5 +55,31 @@ export async function putTextTranslation(projectId: string, request: TextTransla
 
 export async function fetchTextTranslation(id: string) {
     const resp = await axios.get(`translations/${id}`)
+    return resp.data
+}
+
+export async function putLayerKeyMap(projectId: string, request: {
+    sceneId: string,
+    layerId: string,
+    keyId: string
+}) {
+    const resp = await axios.put(`scenes/${request.sceneId}/layers/${request.layerId}`, {
+        keyId: request.keyId
+    })
+    return resp.data
+}
+
+export async function fetchTextTranslationFromLayer(projectId: string, request: {
+    sceneId: string,
+    layerId: string,
+}): Promise<LayerTranslation> {
+    const resp = await axios.get(`scenes/${request.sceneId}/layers/${request.layerId}`)
+    return resp.data
+}
+
+export async function fetchTextTranslationsFromScene(projectId: string, request: {
+    sceneId: string,
+}): Promise<ReadonlyArray<LayerTranslation>> {
+    const resp = await axios.get(`scenes/${request.sceneId}`)
     return resp.data
 }
