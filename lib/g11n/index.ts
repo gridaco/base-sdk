@@ -60,8 +60,7 @@ export class Locale implements ILocale {
  *  K = locale string
  *  V = value of locale key
  */
-type Translations = Map<string, RawAsset>
-
+export type Translations = Map<string, RawAsset>
 
 /**
  * 

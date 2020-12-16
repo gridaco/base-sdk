@@ -20,6 +20,7 @@ export class DesignGlobalizationRepositoriesStore {
 
 
 export class DesignGlobalizationRepository {
+    readonly locales = ['en', 'ja', 'ko']
     private readonly textTranslationRepository: TextTranslationRepository
     private readonly layerKeyMapRepository: LayerKeyMapRepository
     constructor(readonly projectId: string, readonly sceneId: string) {
