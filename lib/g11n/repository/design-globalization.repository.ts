@@ -1,4 +1,5 @@
-import { LayerTranslation } from "..";
+import { RawAsset } from "../../assets";
+import { IGlobalizedKey, LayerTranslation } from "..";
 import { GlobalizedKeyRegisterRequest, GlobalizedTextKeyRegisterRequest, TextTranslationPutRequest } from "../api";
 import { LayerKeyMapRepository } from "./layer-key-map.repository";
 import { TextTranslationRepository } from "./text-translation.repository";
@@ -21,6 +22,7 @@ export class DesignGlobalizationRepositoriesStore {
 
 export class DesignGlobalizationRepository {
     readonly locales = ['en', 'ja', 'ko']
+    readonly chache = new Map<string, RawAsset>()
     private readonly textTranslationRepository: TextTranslationRepository
     private readonly layerKeyMapRepository: LayerKeyMapRepository
     constructor(readonly projectId: string, readonly sceneId: string) {
@@ -39,7 +41,9 @@ export class DesignGlobalizationRepository {
         return key
     }
 
-    async fetchTranslation(layerId: string) {
+    async fetchTranslation(layerId: string, options?: {
+        cached?: boolean
+    }): Promise<IGlobalizedKey | undefined> {
         const lt = await this.layerKeyMapRepository.fetchLayerTranslation(layerId)
         if (lt) {
             const translation = lt.translation
@@ -48,6 +52,14 @@ export class DesignGlobalizationRepository {
         }
 
         return undefined
+    }
+
+    async fetchLocaleTranslation(layerId: string, locale: string): Promise<string | undefined> {
+        const translation = await this.fetchTranslation(layerId)
+        const translations = (translation?.translations as any)
+        if (translations) {
+            return (translations[locale] as RawAsset)?.value
+        }
     }
 
     async fetchKeys(): Promise<ReadonlyArray<string>> {

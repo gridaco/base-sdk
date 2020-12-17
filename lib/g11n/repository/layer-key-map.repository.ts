@@ -18,7 +18,7 @@ export class LayerKeyMapRepository {
     }
 
 
-    async fetchLayerTranslation(layerId: string): Promise<LayerTranslation> {
+    async fetchLayerTranslation(layerId: string): Promise<LayerTranslation | undefined> {
         const t = await fetchTextTranslationFromLayer(this.projectId, {
             layerId: layerId,
             sceneId: this.sceneId

@@ -72,9 +72,16 @@ export async function putLayerKeyMap(projectId: string, request: {
 export async function fetchTextTranslationFromLayer(projectId: string, request: {
     sceneId: string,
     layerId: string,
-}): Promise<LayerTranslation> {
-    const resp = await axios.get(`scenes/${request.sceneId}/layers/${request.layerId}`)
-    return resp.data
+}): Promise<LayerTranslation | undefined> {
+    try {
+        const resp = await axios.get(`scenes/${request.sceneId}/layers/${request.layerId}`)
+        return resp.data
+    } catch (_) {
+        if (_.response.status == 404) {
+            return undefined
+        }
+        throw _
+    }
 }
 
 export async function fetchTextTranslationsFromScene(projectId: string, request: {
