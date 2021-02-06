@@ -1,5 +1,5 @@
 import { IconConfig } from "@reflect.bridged.xyz/core";
-import { CORS_ANYWHERE } from "../../cors";
+import { buildCorsFreeUrl } from "../../cors";
 import Axios from "axios";
 
 export async function loadSvg(
@@ -7,11 +7,10 @@ export async function loadSvg(
     config: IconConfig
 ): Promise<string> {
     const url = makeIconUrl(key, config);
-    const requestUrl = CORS_ANYWHERE + url;
-    console.log(`svg request: `, requestUrl);
+    const requestUrl = buildCorsFreeUrl(url);
+    // console.log(`svg request: `, requestUrl);
     const raw = await (await Axios.get(requestUrl)).data;
-    // const raw = await (await fetch(, sentData)).text()
-    console.log(`icon raw data loaded for ${key}, length of ${raw.length}`);
+    // console.log(`icon raw data loaded for ${key}, length of ${raw.length}`);
     return raw;
 }
 
