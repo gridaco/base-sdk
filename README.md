@@ -9,3 +9,4 @@
 - /projects
 - /resources
 - /hosting
+- /cors
