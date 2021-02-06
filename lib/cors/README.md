@@ -1,0 +1,2 @@
+## Cors
+> cors.bridged.cc

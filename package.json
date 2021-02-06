@@ -3,18 +3,17 @@
   "version": "0.0.1-14",
   "description": "bridged's service access api node wrapper",
   "repository": "https://github.com/bridgedxyz/services",
-  "author": "bridged.xyz (softmarshmallow)",
+  "author": "bridged.xyz authors",
   "license": "MIT",
   "main": "dist/index.js",
   "private": false,
   "scripts": {
-    "postpublish": "tsc",
-    "postinstall": "tsc"
+    "prepublish": "tsc"
   },
   "devDependencies": {
     "@types/node": "^14.14.5",
     "typescript": "^4.1.2",
-    "@reflect.bridged.xyz/core": "0.0.1"
+    "@reflect.bridged.xyz/core": "0.0.2rc3"
   },
   "dependencies": {
     "aws-sdk": "^2.783.0",
