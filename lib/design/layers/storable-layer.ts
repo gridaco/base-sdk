@@ -1,4 +1,4 @@
-import { TextManifest, ImageManifest, CGRectManifest } from "@reflect.bridged.xyz/core/lib";
+import { TextManifest, ImageManifest, CGRectManifest } from "@reflect.bridged.xyz/core";
 import { StorableLayerType } from "./storable-layer-type";
 
 /**
