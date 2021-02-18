@@ -11,3 +11,22 @@ export function encodeQueryData(data: any) {
         return "";
     }
 }
+
+export function isUrl(
+    url: string,
+    options?: {
+        ensureHttps: boolean;
+    }
+) {
+    try {
+        const sureUrl = new URL(url);
+        if (options && options.ensureHttps) {
+            if (sureUrl.protocol != "https:") {
+                return false;
+            }
+        }
+        return true;
+    } catch (_) {
+        return false;
+    }
+}

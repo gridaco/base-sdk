@@ -1,6 +1,7 @@
 import { compileComplete } from "dart-services";
 import { makeShortUrl } from "../../url";
 import { upload } from "../../hosting";
+import { nanoid } from "nanoid";
 
 export interface AppBuildResult {
     id: string;
@@ -23,7 +24,8 @@ export async function compileFlutterApp(props: {
     }
 
     return {
-        id: props.id,
+        // if no id provided, create random id and assign. (since it must be non-tracked build separated from bridged services)
+        id: props.id ?? nanoid(),
         js: compiled.result,
     };
 }

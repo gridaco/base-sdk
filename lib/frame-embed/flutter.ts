@@ -1,3 +1,5 @@
+import { isUrl } from "../utils/url.utils";
+
 const HOST_APPBOX_FRAME_FLUTTER = "https://frames-appbox.vercel.app/flutter";
 /**
  * state of flutter frame loading
@@ -11,10 +13,12 @@ export type FlutterLoadingState =
     | "complete"
     | "failed";
 
+export type FlutterFrameSourceMode = "content" | "url" | "unknown";
+
 export interface FlutterFrameQuery {
     id?: string;
     src: string;
-    mode: "content" | "url";
+    mode?: FlutterFrameSourceMode;
     language: FlutterCompatLanguage;
 }
 
@@ -30,4 +34,14 @@ export function buildFlutterFrameUrl(params: FlutterFrameQuery, host?: string) {
 
     // use default host if no override "host" param givven
     return `${host ?? HOST_APPBOX_FRAME_FLUTTER}?${query.toString()}`;
+}
+
+export function checkFlutterFrameSourceMode(
+    source: string
+): FlutterFrameSourceMode {
+    if (isUrl(source)) {
+        return "url";
+    } else {
+        return "content";
+    }
 }

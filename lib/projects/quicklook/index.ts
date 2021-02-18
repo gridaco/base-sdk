@@ -14,7 +14,7 @@ export interface QuicklookQueryParams {
     id: string;
     framework: AppFramework;
     language: AppLanguage;
-    url?: string;
+    url: string;
     name: string;
     w?: number;
     h?: number;
