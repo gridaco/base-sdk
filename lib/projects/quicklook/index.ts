@@ -1,24 +1,23 @@
 import { encodeQueryData } from "../../utils/url.utils";
+import { AppLanguage } from "../../types/app-languages";
+import { AppFramework } from "../../types/app-frameworks";
 
 interface QuickLookRequestFlutter {
-    flutterCode: string
+    flutterCode: string;
 }
 
 interface QuickLookResponse {
-    url: string
+    url: string;
 }
 
-export type framework = "flutter" | "react"
-export type language = "dart" | "js"
-
 export interface QuicklookQueryParams {
-    id: string
-    framework: framework
-    language: language
-    url?: string
-    name: string
-    w?: number
-    h?: number
+    id: string;
+    framework: AppFramework;
+    language: AppLanguage;
+    url?: string;
+    name: string;
+    w?: number;
+    h?: number;
 }
 
 export function buildConsoleQuicklookUrl(props: QuicklookQueryParams) {
@@ -26,16 +25,20 @@ export function buildConsoleQuicklookUrl(props: QuicklookQueryParams) {
     return `https://console.bridged.xyz/quicklook?${querystring}`;
 }
 
-export function quickLookFlutterDCC(args: QuickLookRequestFlutter): QuickLookResponse {
+export function quickLookFlutterDCC(
+    args: QuickLookRequestFlutter
+): QuickLookResponse {
     // TODO call api
     return {
-        url: "https://console.bridged.xyz/projcets/temp/quicklook"
-    }
+        url: "https://console.bridged.xyz/projcets/temp/quicklook",
+    };
 }
 
-export function quickLookReact(args: QuickLookRequestFlutter): QuickLookResponse {
+export function quickLookReact(
+    args: QuickLookRequestFlutter
+): QuickLookResponse {
     // TODO call api
     return {
-        url: "https://console.bridged.xyz/projcets/temp/quicklook"
-    }
+        url: "https://console.bridged.xyz/projcets/temp/quicklook",
+    };
 }
