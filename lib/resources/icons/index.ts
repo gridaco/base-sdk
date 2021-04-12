@@ -1,4 +1,4 @@
-import { IconConfig } from "@reflect.bridged.xyz/core";
+import { IconConfig } from "@reflect-ui/core";
 import { buildCorsFreeUrl } from "../../cors";
 import Axios from "axios";
 
