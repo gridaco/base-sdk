@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@reflect.bridged.xyz/core@0.0.2rc3":
-  version "0.0.2-rc3"
-  resolved "https://registry.yarnpkg.com/@reflect.bridged.xyz/core/-/core-0.0.2-rc3.tgz#ffc32725ddfa1d9b6377efeb8378a2a90a6ef03a"
-  integrity sha512-XYpPwTX0luzjeLAttRgZjK60OPjY5+7c9WmXMIu05HEr9hRwDRNrJTjUPDlPh+oEfVvIZoqgG8+I82KoQhEhiQ==
+"@reflect-ui/core@0.0.2-rc.7":
+  version "0.0.2-rc.7"
+  resolved "https://registry.yarnpkg.com/@reflect-ui/core/-/core-0.0.2-rc.7.tgz#9d531f5a0b9caab31e7563020044b753700e2bbc"
+  integrity sha512-EqF4SRU57bfa5DOPET1rv5lROFyMVHLv1xTEIlN6N2gDpXt71QceImWfQp3z3Khqnb4R/p9OhNK6DXGUpozWKw==
 
 "@types/node@^14.14.5":
   version "14.14.5"
@@ -122,6 +122,11 @@ mime-types@^2.1.12:
   integrity sha512-0TO2yJ5YHYr7M2zzT7gDU1tbwHxEUWBCLt0lscSNpcdAfFyJOVEpRYNS7EXVcTLNj/25QO8gulHC5JtTzSE2UQ==
   dependencies:
     mime-db "1.45.0"
+
+nanoid@^3.1.22:
+  version "3.1.22"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.22.tgz#b35f8fb7d151990a8aebd5aa5015c03cf726f844"
+  integrity sha512-/2ZUaJX2ANuLtTvqTlgqBQNJoQO398KyJgZloL0PZkC0dpysjncRUPsFe3DUPzz/y3h+u7C46np8RMuvF3jsSQ==
 
 punycode@1.3.2:
   version "1.3.2"
