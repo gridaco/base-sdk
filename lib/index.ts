@@ -1,4 +1,6 @@
 export * as _abstract from "./services-abstract";
+export * as projects from "./projects";
+export * as features from "./features";
 export * as assets from "./assets";
 export * from "./asset-repository";
 export * as url from "./url";
