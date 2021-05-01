@@ -8,3 +8,4 @@ export * from "./design";
 export * as versions from "./versions";
 export * from "./scene";
 export * as hosting from "./hosting";
+export * as types from "./types";
