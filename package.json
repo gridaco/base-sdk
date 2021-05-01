@@ -1,6 +1,6 @@
 {
   "name": "@bridged.xyz/base-sdk",
-  "version": "0.0.1-17",
+  "version": "0.0.1-18",
   "description": "bridged's service access api node wrapper",
   "repository": "https://github.com/bridgedxyz/services",
   "author": "bridged.xyz authors",

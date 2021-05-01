@@ -1,6 +1,6 @@
 import { isUrl } from "../utils/url.utils";
-
-const HOST_APPBOX_FRAME_FLUTTER = "https://frames-appbox.vercel.app/flutter";
+const HOST_APPBOX_BASE = "https://frames-embed-appbox.bridged.xyz";
+const HOST_APPBOX_FRAME_FLUTTER = `${HOST_APPBOX_BASE}/flutter`;
 /**
  * state of flutter frame loading
  */
