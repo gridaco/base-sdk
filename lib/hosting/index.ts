@@ -1,46 +1,52 @@
 // import Lambda, { InvocationRequest } from 'aws-sdk/clients/lambda';
-import { FileHostingRequest, FileHostingResult } from './types';
-import FormData from "form-data"
-import Axios from "axios"
-import { HOSTING_SERVICE_HOST } from '../constants/hosts';
-const axios = Axios.create(
-    {
-        baseURL: HOSTING_SERVICE_HOST
-    }
-)
+import { FileHostingRequest, FileHostingResult } from "./types";
 
+try {
+    global.FormData = require("form-data");
+} catch (_) {}
 
+import Axios from "axios";
+import { HOSTING_SERVICE_HOST } from "../constants/hosts";
+const axios = Axios.create({
+    baseURL: HOSTING_SERVICE_HOST,
+});
 
 export async function upload(request: FileHostingRequest) {
     try {
         let file;
 
-        if (typeof window === 'undefined') {
+        if (typeof window === "undefined") {
             // this works on server side node js
             // TODO this may not work intime
             file = JSON.stringify(request.file);
         } else {
             // this works on browser js
             if (!(request.file instanceof Blob)) {
-                file = new Blob([request.file])
+                file = new Blob([request.file]);
             } else {
-                file = request.file
+                file = request.file;
             }
         }
 
-        const form = new FormData()
-        form.append('file', file, { filename: request.name })
-        const header = form.getHeaders ? {
-            'content-type': form.getHeaders()['content-type'],
-            'content-length': form.getLengthSync()
-        } : undefined
-        const res = await axios.post('/resources', form, {
-            headers: header
-        })
-        return res.data as FileHostingResult
+        const form = new FormData();
+        //@ts-ignore
+        form.append("file", file, { filename: request.name });
+        //@ts-ignore
+        const header = form.getHeaders
+            ? {
+                  //@ts-ignore
+                  "content-type": form.getHeaders()["content-type"],
+                  //@ts-ignore
+                  "content-length": form.getLengthSync(),
+              }
+            : undefined;
+        const res = await axios.post("/resources", form, {
+            headers: header,
+        });
+        return res.data as FileHostingResult;
     } catch (e) {
-        console.log(e)
-        throw e.response ?? e
+        console.log(e);
+        throw e.response ?? e;
     }
 }
 
