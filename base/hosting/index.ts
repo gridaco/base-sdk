@@ -1,14 +1,13 @@
 // import Lambda, { InvocationRequest } from 'aws-sdk/clients/lambda';
 import { FileHostingRequest, FileHostingResult } from "./types";
-
+import { __HOSTS } from "@base-sdk/core";
 try {
     global.FormData = require("form-data");
 } catch (_) {}
 
 import Axios from "axios";
-import { HOSTING_SERVICE_HOST } from "../constants/hosts";
 const axios = Axios.create({
-    baseURL: HOSTING_SERVICE_HOST,
+    baseURL: __HOSTS.HOSTING_SERVICE_HOST,
 });
 
 export async function upload(request: FileHostingRequest) {
