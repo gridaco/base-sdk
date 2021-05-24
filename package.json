@@ -5,28 +5,11 @@
   "repository": "https://github.com/bridgedxyz/services",
   "author": "bridged.xyz authors",
   "license": "MIT",
-  "main": "dist/index.js",
-  "private": false,
+  "private": true,
+  "workspaces": [
+    "./[!_]*"
+  ],
   "scripts": {
     "prepack": "tsc"
-  },
-  "devDependencies": {
-    "@reflect-ui/core": "0.0.2-rc.7",
-    "@types/node": "^14.14.5",
-    "typescript": "^4.1.2"
-  },
-  "dependencies": {
-    "aws-sdk": "^2.783.0",
-    "axios": "^0.21.0",
-    "dart-services": "^0.2.3",
-    "form-data": "^3.0.0",
-    "nanoid": "^3.1.22"
-  },
-  "files": [
-    "dist/index.js",
-    "dist/index.d.ts",
-    "dist/lib/**/*",
-    "LICENSE",
-    "README.md"
-  ]
+  }
 }
