@@ -4,7 +4,6 @@ export const PACKAGE_NAME = "@base-sdk/base";
 // exports
 export * as url from "@base-sdk/url";
 export * as hosting from "@base-sdk/url";
-export * as cors from "@base-sdk/core/cors";
 export * as _abstract from "./services-abstract";
 export * as projects from "./projects";
 export * as features from "./features";
@@ -15,3 +14,6 @@ export * from "./design";
 export * as versions from "./versions";
 export * from "./scene";
 export * as types from "./types";
+
+// export cors explicitly
+export { cors } from "@base-sdk/core";

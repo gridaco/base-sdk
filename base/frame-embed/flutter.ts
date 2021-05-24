@@ -1,4 +1,4 @@
-import { isUrl } from "../utils/url.utils";
+import { utils_url } from "@base-sdk/core";
 const HOST_APPBOX_BASE = "https://frames-embed-appbox.bridged.xyz";
 const HOST_APPBOX_FRAME_FLUTTER = `${HOST_APPBOX_BASE}/flutter`;
 /**
@@ -39,7 +39,7 @@ export function buildFlutterFrameUrl(params: FlutterFrameQuery, host?: string) {
 export function checkFlutterFrameSourceMode(
     source: string
 ): FlutterFrameSourceMode {
-    if (isUrl(source)) {
+    if (utils_url.isUrl(source)) {
         return "url";
     } else {
         return "content";

@@ -1,4 +1,4 @@
-import { isUrl } from "../utils/url.utils";
+import { utils_url } from "@base-sdk/core";
 import { AppFramework } from "../types/app-frameworks";
 import { checkFlutterFrameSourceMode } from "./flutter";
 
@@ -13,7 +13,7 @@ export function checkFrameSourceMode(
         case AppFramework.flutter:
             return checkFlutterFrameSourceMode(source);
         case AppFramework.react:
-            return isUrl(source) ? "url" : "content";
+            return utils_url.isUrl(source) ? "url" : "content";
     }
 
     return "unknown";
