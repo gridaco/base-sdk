@@ -8,3 +8,5 @@ export const LEGACY_SCENE_STORE_SERVICE_HOST = "https://scene-store.bridged.cc";
 export const G11N_SERVICE_HOST = "https://g11n.bridged.cc";
 export const ASSET_SERVICE_HOST = "https://assets.bridged.cc";
 export const CORS_SERVICE_HOST = "https://cors.bridged.cc";
+export const INTERNAL_PAY_WEB_HOST = "https://pay.bridged.xyz";
+export const INTERNAL_ACCOUNTS_WEB_HOST = "https://accounts.bridged.xyz";
