@@ -1,6 +1,6 @@
 import { compileComplete } from "dart-services";
-import { makeShortUrl } from "../../url";
-import { upload } from "../../hosting";
+import { makeShortUrl } from "@base-sdk/url";
+import { upload } from "@base-sdk/hosting";
 import { nanoid } from "nanoid";
 
 export interface AppBuildResult {

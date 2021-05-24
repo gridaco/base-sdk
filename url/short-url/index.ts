@@ -1,4 +1,4 @@
-import { UrlShortenRequest, UrlShortenResult } from "./types";
+import { UrlShortenRequest, UrlShortenResult } from "../types";
 import Axios from "axios";
 import { __HOSTS } from "@base-sdk/core";
 
@@ -13,5 +13,3 @@ export async function makeShortUrl(
     const data = res.data as UrlShortenResult;
     return data;
 }
-
-export * from "./types";

@@ -1,11 +1,11 @@
 ![base-sdk](../_branding/cover.png)
 
-# BASE SDK `core`
+# BASE SDK `url`
 
 ## Installation
 
 ```sh
-yarn add @base-sdk/core
+yarn add @base-sdk/url
 ```
 
 ## Usage

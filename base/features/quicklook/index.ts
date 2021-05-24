@@ -1,4 +1,4 @@
-import { encodeQueryData } from "../../utils/url.utils";
+import { utils_url } from "@base-sdk/core";
 import { AppLanguage } from "../../types/app-languages";
 import { AppFramework } from "../../types/app-frameworks";
 
@@ -21,7 +21,7 @@ export interface QuicklookQueryParams {
 }
 
 export function buildConsoleQuicklookUrl(props: QuicklookQueryParams) {
-    const querystring = encodeQueryData(props);
+    const querystring = utils_url.encodeQueryData(props);
     return `https://console.bridged.xyz/quicklook?${querystring}`;
 }
 

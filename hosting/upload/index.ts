@@ -1,5 +1,5 @@
 // import Lambda, { InvocationRequest } from 'aws-sdk/clients/lambda';
-import { FileHostingRequest, FileHostingResult } from "./types";
+import { FileHostingRequest, FileHostingResult } from "../types";
 import { __HOSTS } from "@base-sdk/core";
 try {
     global.FormData = require("form-data");
