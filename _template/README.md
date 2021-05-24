@@ -1,3 +1,7 @@
+<!-- template for new package.  -->
+<!-- 1. replace "<package-name>" from README to it's package name -->
+<!-- 2. replace "<package-name>" from index.ts to it's package name -->
+
 ![base-sdk](../_branding/cover.png)
 
 # BASE SDK `<package-name>`
