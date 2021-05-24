@@ -1,3 +1,7 @@
+// preserve
+export const PACKAGE_NAME = "@base-sdk/base";
+
+// exports
 export * as _abstract from "./services-abstract";
 export * as projects from "./projects";
 export * as features from "./features";
