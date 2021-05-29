@@ -7,7 +7,7 @@
         "prepack": "tsc"
     },
     "dependencies": {
-        "@base-sdk/core": "0.0.3",
+        "@base-sdk/core": "0.0.4",
         "otplib": "^12.0.1"
     },
     "devDependencies": {

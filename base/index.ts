@@ -3,7 +3,8 @@ export const PACKAGE_NAME = "@base-sdk/base";
 
 // exports
 export * as url from "@base-sdk/url";
-export * as hosting from "@base-sdk/url";
+export * as hosting from "@base-sdk/hosting";
+export * as build from "@base-sdk/build";
 export * as _abstract from "./services-abstract";
 export * as projects from "./projects";
 export * as features from "./features";
