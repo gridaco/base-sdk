@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@base-sdk/core@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@base-sdk/core/-/core-0.0.0.tgz#a85902ccda026575c4a4a53c8c5da4fcec6ef286"
-  integrity sha512-QBSf5frSTluDYvFr1RME9MqWQMGHW5wN8hDEML1ZkUczmQTZdpCvySeA2Z9rfXQkjmCZ3PXIFF9ENnLZfMhMtw==
+"@base-sdk/core@0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@base-sdk/core/-/core-0.0.3.tgz#6668b6dbf819cde36859e915886c4429c23f5f4a"
+  integrity sha512-tIayMCzq8S+umbTwZxiBeSdcAH7uhd1o5nINE+2c4VMhqSO8sWdNdWgX2N09vPAJYiJZIRYeF7JZ2CZpaHAaQg==
   dependencies:
     "@reflect-ui/core" "0.0.2-rc.7"
     aws-sdk "^2.783.0"

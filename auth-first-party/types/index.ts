@@ -1,4 +1,34 @@
 /**
+ * (This is not a OAuth) Proxy mode designed for internal bridged's product authentication for non-browser platforms.
+ */
+export enum ProxyAuthenticationMode {
+    /**
+     * resolves the async request with ws connection.
+     * authenticate using bridged's official websocket proxy for non browser url callback supported platforms.
+     */
+    ws = "ws",
+    /**
+     * resolves the async request with sse result. - not recommanded. only available for request within under 6 seconds.
+     */
+    sse = "sse",
+    /**
+     * if mode is none, the request client will have to check the result manually with time interval based long-polling.
+     */
+    long_polling = "long-polling",
+    none = "none",
+}
+
+/**
+ * Client model
+ */
+export interface AuthProxySessionStartResult {
+    id: string;
+    mode: ProxyAuthenticationMode | string;
+    expiresAt: Date;
+    authUrl: string;
+}
+
+/**
  * result object of proxy auth. this exposes the access_token.
  *
  * this is not used on a browser environment, safely used preventing attacks.

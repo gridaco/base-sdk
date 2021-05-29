@@ -1,56 +1,37 @@
-import { ProxyAuthResult } from "types";
-import { WsProxyAuthProc } from "./ws";
-import Axios from "axios";
-export * from "./ws";
+import { ProxyAuthenticationMode, ProxyAuthResult } from "../types";
+import { WsAuthProxyProc } from "./ws";
 
-const client = Axios.create({
-    // todo
-    baseURL: "",
-});
+import { __HOSTS } from "@base-sdk/core";
+export * from "./ws";
+import { totp } from "otplib";
+import { AuthProxyProcBase } from "./proc-base";
+import { SseAuthProxyProc } from "./sse";
+import { LogPollingAuthProxyProc } from "./lopo";
+import { _api_newProxySession } from "./api";
 
 export async function requesetProxyAuth(req: {
-    mode: /**
-     * resolves the async request with ws connection.
+    mode: ProxyAuthenticationMode;
+    /**
+     * for oss development, defaults to `"00000000"`
+     * enter key for `BRIDGED_FIRST_PARTY_PROXY_AUTH_REQUEST_TOTP_SECRET`
      */
-    | "ws"
-        /**
-         * resolves the async request with sse result. - not recommanded. only available for request within under 6 seconds.
-         */
-        | "sse"
-        /**
-         * if mode is none, the request client will have to check the result manually with time interval based long-polling.
-         */
-        | "none";
     secret: string;
 }): Promise<ProxyAuthResult> {
     // todo
-
-    const sessionId = await _api_newProxySession();
+    const token = totp.generate(req.secret);
+    const sessionId = await _api_newProxySession(token);
+    let proc: AuthProxyProcBase<any>;
     switch (req.mode) {
-        case "ws":
-            const wsproc = new WsProxyAuthProc(sessionId, req.secret);
-            return await wsproc.onResult();
-        case "none":
+        case ProxyAuthenticationMode.ws:
+            proc = new WsAuthProxyProc(sessionId, req.secret);
+            return await proc.onResult();
+        case ProxyAuthenticationMode.sse:
+            proc = new SseAuthProxyProc(sessionId, req.secret);
             break;
+        case ProxyAuthenticationMode.long_polling:
+            proc = new LogPollingAuthProxyProc(sessionId, req.secret);
         default:
             throw `mode "${req.mode}" is not supported yet.`;
     }
-}
-
-async function _api_newProxySession(): Promise<string> {
-    const _newProxySessionReqRes = await client.post("/session/new");
-    const sessionId = _newProxySessionReqRes.data.sessionId;
-    return sessionId;
-}
-
-/**
- * check the result regarding less to the realtime proxy mode the original request was using.
- *
- * this can also be used solo
- *
- * @todo - todo. this aint implemented.
- * @returns
- */
-async function _api_checkSessionAgain(): Promise<ProxyAuthResult | null> {
-    return null;
+    return await proc.onResult();
 }
