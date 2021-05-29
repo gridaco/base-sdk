@@ -1,6 +1,6 @@
 {
     "name": "@base-sdk/auth-first-party",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "main": "dist/index.js",
     "private": false,
     "scripts": {
@@ -17,7 +17,8 @@
     "files": [
         "dist/index.js",
         "dist/index.d.ts",
-        "dist/lib/**/*",
+        "dist/**/*.js",
+        "dist/**/*.d.ts",
         "LICENSE",
         "README.md"
     ]
