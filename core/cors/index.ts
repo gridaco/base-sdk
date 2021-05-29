@@ -1,15 +1,15 @@
 import Axios, { AxiosProxyConfig } from "axios";
-import { __HOSTS } from "@base-sdk/core";
+import { HOST } from "../constants";
 
 /**
  * A base axios object that holds cors.bridged.cc as base host
  */
 export const corsAxios = Axios.create({
-    baseURL: __HOSTS.CORS_SERVICE_HOST,
+    baseURL: HOST.CORS_SERVICE_HOST,
 });
 
 export const corsAxiosProxyConfig: AxiosProxyConfig = {
-    host: __HOSTS.CORS_SERVICE_HOST,
+    host: HOST.CORS_SERVICE_HOST,
     port: 443,
 };
 
@@ -17,5 +17,5 @@ export const corsAxiosProxyConfig: AxiosProxyConfig = {
  * builds cors free request url with givvne input.
  */
 export function buildCorsFreeUrl(url: string): string {
-    return `${__HOSTS.CORS_SERVICE_HOST}/${url}`;
+    return `${HOST.CORS_SERVICE_HOST}/${url}`;
 }

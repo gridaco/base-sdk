@@ -1,6 +1,8 @@
 {
     "name": "@base-sdk/core",
-    "version": "0.0.1",
+    "version": "0.0.3",
+    "main": "dist/index.js",
+    "private": false,
     "scripts": {
         "prepack": "tsc"
     },
@@ -19,7 +21,8 @@
     "files": [
         "dist/index.js",
         "dist/index.d.ts",
-        "dist/lib/**/*",
+        "dist/**/*.js",
+        "dist/**/*.d.ts",
         "LICENSE",
         "README.md"
     ]
