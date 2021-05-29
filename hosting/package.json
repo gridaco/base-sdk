@@ -5,7 +5,8 @@
         "prepack": "tsc"
     },
     "dependencies": {
-        "@base-sdk/core": "0.0.4"
+        "@base-sdk/core": "0.0.4",
+        "form-data": "^3.0.0"
     },
     "devDependencies": {
         "@types/node": "^15.6.0",
