@@ -1,11 +1,11 @@
 {
     "name": "@base-sdk/build",
-    "version": "0.0.3",
+    "version": "0.1.0",
     "scripts": {
         "prepack": "tsc"
     },
     "dependencies": {
-        "@base-sdk/core": "0.0.4",
+        "@base-sdk/core": "0.1.0",
         "@base-sdk/hosting": "0.0.1",
         "@base-sdk/url": "0.0.1",
         "dart-services": "^0.2.3"
