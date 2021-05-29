@@ -1,14 +1,13 @@
 {
-    "name": "@base-sdk/base",
-    "version": "0.0.6",
+    "name": "@base-sdk/resources",
+    "version": "0.0.0",
+    "main": "dist/index.js",
+    "private": false,
     "scripts": {
         "prepack": "tsc"
     },
     "dependencies": {
-        "@base-sdk/core": "0.0.4",
-        "@base-sdk/hosting": "0.0.2",
-        "@base-sdk/resources": "0.0.0",
-        "@base-sdk/url": "0.0.4"
+        "@base-sdk/core": "0.0.4"
     },
     "devDependencies": {
         "@types/node": "^15.6.0",
