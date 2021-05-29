@@ -1,13 +1,13 @@
 {
     "name": "@base-sdk/build",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "scripts": {
         "prepack": "tsc"
     },
     "dependencies": {
-        "@base-sdk/core": "0.0.0",
-        "@base-sdk/hosting": "0.0.0",
-        "@base-sdk/url": "0.0.0"
+        "@base-sdk/core": "0.0.4",
+        "@base-sdk/hosting": "0.0.1",
+        "@base-sdk/url": "0.0.1"
     },
     "devDependencies": {
         "@types/node": "^15.6.0",
