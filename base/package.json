@@ -1,14 +1,13 @@
 {
     "name": "@base-sdk/base",
-    "version": "0.0.0",
+    "version": "0.0.4",
     "scripts": {
         "prepack": "tsc"
     },
     "dependencies": {
-        "@base-sdk/core": "0.0.0",
-        "@base-sdk/auth": "0.0.0",
-        "@base-sdk/url": "0.0.0",
-        "@base-sdk/hosting": "0.0.0"
+        "@base-sdk/core": "0.0.3",
+        "@base-sdk/hosting": "0.0.1",
+        "@base-sdk/url": "0.0.1"
     },
     "devDependencies": {
         "@types/node": "^15.6.0",
