@@ -5,6 +5,8 @@ import { ProxyAuthResult } from "types";
 
 export class WsProxyAuthProc {
     readonly ws: WebSocket;
+    resolve: (result: ProxyAuthResult) => void;
+    reject: (reason?: any) => void;
     constructor(readonly session: string, readonly secret: string) {
         this.ws = new WebSocket(__HOSTS.INTERNAL_WS_PROXY_AUTH_HOST);
         this.ws.onmessage = this._on_message;
@@ -20,8 +22,19 @@ export class WsProxyAuthProc {
         this.ws.send(_jsonstr);
     }
 
+    async onResult(): Promise<ProxyAuthResult> {
+        return new Promise<ProxyAuthResult>((resolve, reject) => {
+            this.resolve = resolve;
+            this.reject = this.reject;
+        });
+    }
+
     private _on_message(ev: MessageEvent) {
+        // the only incomming message is final result. (at this time 2021Q3)
+        // close all connection after receiving the message.
         const data: ProxyAuthResult = ev.data;
+        this.resolve(data);
+        this.ws.close();
     }
 
     private _make_token(): string {
