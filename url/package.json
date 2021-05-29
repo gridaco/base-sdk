@@ -1,6 +1,6 @@
 {
     "name": "@base-sdk/url",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "scripts": {
         "prepack": "tsc"
     },
