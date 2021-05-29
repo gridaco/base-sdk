@@ -6,13 +6,21 @@
 
 ## Installation
 
+> You will not have to install this package manually. this package is only used for bridged first party products.
+
 ```sh
-yarn add @base-sdk/auth-first-party
+yarn add --dev @base-sdk/auth-first-party
 ```
 
-## Usage
+## Usage (Exceptional)
 
 <!-- add sdk usage example here -->
+
+The usage of this package is exceptional. all other package have it's corresponding backend service, but not this. This package is used for authenticating bridged first party applications, which is all oepnsource. only the interface and process are presend here, actual authentication service is closed and managed securely.
+
+**From below, the usage guide is only for bridged security developers, not for general bridged users.**
+
+-   usage docs - wip
 
 ## What is BASE?
 
