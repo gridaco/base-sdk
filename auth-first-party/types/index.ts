@@ -68,10 +68,10 @@ export interface ProxyAuthResult {
  * {
  *    redirect: "https://bridged.xyz/welcome",
  *    proxy: true,
- *    mode: "websocket-proxy"
+ *    mode: ProxyAuthenticationMode.ws
  * }
  * ```
- * builds https://accounts.bridged.xyz/?redirect=https://bridged.xyz/welcome&proxy=1&mode=websocket-proxy
+ * builds https://accounts.bridged.xyz/?redirect=https://bridged.xyz/welcome&proxy=1&mode=ws
  */
 export interface AthenticationWebPageClientUrlBuilderParam {
     redirect: string;
