@@ -4,7 +4,7 @@
     "main": "dist/index.js",
     "private": false,
     "scripts": {
-        "prepack": "tsc"
+        "prepack": "yarn && tsc"
     },
     "dependencies": {
         "@base-sdk/core": "0.1.0"
