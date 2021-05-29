@@ -1,11 +1,13 @@
 ![base-sdk](../_branding/cover.png)
 
-# BASE SDK `auth`
+# BASE SDK `auth-first-party`
+
+> This is a package for authenticating base and bridged services itself. if you are looking for package implementing your own auth on your own service, please refer [@base-sdk/auth](../auth)
 
 ## Installation
 
 ```sh
-yarn add @base-sdk/auth
+yarn add @base-sdk/auth-first-party
 ```
 
 ## Usage

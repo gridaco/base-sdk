@@ -1,5 +1,5 @@
 {
-    "name": "@base-sdk/auth",
+    "name": "@base-sdk/auth-first-party",
     "version": "0.0.0",
     "scripts": {
         "prepack": "tsc"
