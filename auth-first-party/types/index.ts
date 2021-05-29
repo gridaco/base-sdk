@@ -56,3 +56,26 @@ export interface ProxyAuthResult {
      */
     access_token?: string;
 }
+
+/**
+ * @todo - move this to base-sdk types
+ * interface for building query params of accounts.bridged.xyz/(singin/signup)
+ * with redirect
+ * with proxy
+ *
+ * e.g.
+ * ```
+ * {
+ *    redirect: "https://bridged.xyz/welcome",
+ *    proxy: true,
+ *    mode: "websocket-proxy"
+ * }
+ * ```
+ * builds https://accounts.bridged.xyz/?redirect=https://bridged.xyz/welcome&proxy=1&mode=websocket-proxy
+ */
+export interface AthenticationWebPageClientUrlBuilderParam {
+    redirect: string;
+    sessionId: string;
+    mode: ProxyAuthenticationMode;
+    proxy: boolean;
+}
