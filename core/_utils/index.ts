@@ -5,3 +5,6 @@
 ///
 
 export * as url from "./url-utils";
+
+// export without name
+export * from "./rand-id";

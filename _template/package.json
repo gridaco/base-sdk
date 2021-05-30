@@ -4,10 +4,10 @@
     "main": "dist/index.js",
     "private": false,
     "scripts": {
-        "prepack": "tsc"
+        "prepack": "yarn && tsc"
     },
     "dependencies": {
-        "@base-sdk/core": "0.0.3"
+        "@base-sdk/core": "0.1.0"
     },
     "devDependencies": {
         "@types/node": "^15.6.0",

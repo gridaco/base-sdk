@@ -1,4 +1,3 @@
-// import Lambda, { InvocationRequest } from 'aws-sdk/clients/lambda';
 import { FileHostingRequest, FileHostingResult } from "../types";
 import { __HOSTS } from "@base-sdk/core";
 try {
