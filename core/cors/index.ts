@@ -1,4 +1,4 @@
-import Axios, { AxiosProxyConfig } from "axios";
+import Axios, { AxiosProxyConfig, AxiosStatic, AxiosInstance } from "axios";
 import { HOST } from "../constants";
 
 /**
@@ -8,6 +8,9 @@ export const corsAxios = Axios.create({
     baseURL: HOST.CORS_SERVICE_HOST,
 });
 
+/**
+ * @deprecated - use `useAxiosCors` instead. the proxy config won't work as expected.
+ */
 export const corsAxiosProxyConfig: AxiosProxyConfig = {
     host: HOST.CORS_SERVICE_HOST,
     port: 443,
@@ -18,4 +21,13 @@ export const corsAxiosProxyConfig: AxiosProxyConfig = {
  */
 export function buildCorsFreeUrl(url: string): string {
     return `${HOST.CORS_SERVICE_HOST}/${url}`;
+}
+
+export function useAxiosCors(axios: AxiosStatic | AxiosInstance) {
+    axios.interceptors.request.use((cf) => {
+        return {
+            ...cf,
+            baseURL: buildCorsFreeUrl(cf.baseURL),
+        };
+    });
 }
