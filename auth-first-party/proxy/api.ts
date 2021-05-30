@@ -1,9 +1,14 @@
 import Axios from "axios";
 import { __HOSTS } from "@base-sdk/core";
 import { ProxyAuthResult } from "../types";
+import axiosRetry from "axios-retry";
+
 const authProxyClient = Axios.create({
     baseURL: `${__HOSTS.INTERNAL_SECURE_ACCOUNTS_SERVICE_HOST}/authentication/with-proxy`,
 });
+
+// retry is enabled since proxy client uses totp validation. by high chance, first request may throw 403 forbidden.
+axiosRetry(authProxyClient, { retries: 2 });
 
 export async function _api_newProxySession(token: string): Promise<string> {
     const _newProxySessionReqRes = await authProxyClient.post("/session/new");
