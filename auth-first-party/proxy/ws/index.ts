@@ -1,7 +1,7 @@
 import { __HOSTS } from "@base-sdk/core";
 import { totp } from "otplib";
 import { AuthProxyProcBase } from "../proc-base";
-import { ProxyAuthResult } from "types";
+import { ProxyAuthResult } from "../types";
 /// request proxy
 
 export class WsAuthProxyProc extends AuthProxyProcBase<WebSocket> {

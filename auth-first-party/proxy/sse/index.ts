@@ -1,5 +1,5 @@
 import { __HOSTS } from "@base-sdk/core";
-import { ProxyAuthResult } from "types";
+import { ProxyAuthResult } from "../types";
 import { AuthProxyProcBase } from "../proc-base";
 
 /**

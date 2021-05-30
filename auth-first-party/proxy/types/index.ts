@@ -48,7 +48,10 @@ export interface AuthProxySessionStartRequest {
      * the client instance id. - this may be managed locally.
      */
     clientId: string;
-    mode: ProxyAuthenticationMode;
+    /**
+     * if non set, "none" to default.
+     */
+    mode?: ProxyAuthenticationMode;
     /**
      * redirect after authentication is complete.
      * e.g. `https://bridged.xyz` | `bridged://app-main` | `any_uri`
