@@ -1,16 +1,11 @@
-<!-- template for new package.  -->
-<!-- 1. replace "<package-name>" from README to it's package name -->
-<!-- 2. replace "<package-name>" from index.ts to it's package name -->
-<!-- 3. remove this comment :) -->
-
 ![base-sdk](../_branding/cover.png)
 
-# BASE SDK `<package-name>`
+# BASE SDK `resources`
 
 ## Installation
 
 ```sh
-yarn add @base-sdk/<package-name>
+yarn add @base-sdk/resources
 ```
 
 ## Usage

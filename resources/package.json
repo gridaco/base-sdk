@@ -1,16 +1,13 @@
 {
-    "name": "@base-sdk/build",
-    "version": "0.1.0-3",
+    "name": "@base-sdk/resources",
+    "version": "0.1.0",
     "main": "dist/index.js",
     "private": false,
     "scripts": {
         "prepack": "tsc"
     },
     "dependencies": {
-        "@base-sdk/core": "0.1.0",
-        "@base-sdk/hosting": "0.1.0-1",
-        "@base-sdk/url": "0.1.0",
-        "dart-services": "^0.2.3"
+        "@base-sdk/core": "0.1.0"
     },
     "devDependencies": {
         "@types/node": "^15.6.0",
