@@ -23,7 +23,17 @@ export function buildCorsFreeUrl(url: string): string {
     return `${HOST.CORS_SERVICE_HOST}/${url}`;
 }
 
-export function useAxiosCors(axios: AxiosStatic | AxiosInstance) {
+export function useAxiosCors(
+    axios: AxiosStatic | AxiosInstance,
+    config?: {
+        // enabled by default. if false not set explicitly, cors will be enabled.
+        enabled?: boolean;
+    }
+) {
+    // if explicitly disabled, then do nothing.
+    if (config?.enabled === false) {
+        return;
+    }
     axios.interceptors.request.use((cf) => {
         return {
             ...cf,
