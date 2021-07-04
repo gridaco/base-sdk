@@ -1,6 +1,6 @@
 ![base-sdk](./_branding/cover.png)
 
-# BASE SDK - Bridged App services sdk
+# BASE SDK - Grida BASE sdk
 
 > Quick and easy, sustainable enterprise level cloud services sdk used and open by Bridged.
 
