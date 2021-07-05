@@ -28,7 +28,7 @@ export enum ProxyAuthenticationMode {
   "id": "0a446c8b-11c4-455e-a410-2ebabf457896",
   "expiresAt": "2021-05-30T00:10:47.681Z",
   "mode": "websocket-proxy",
-  "authUrl": "https://accounts.bridged.xyz"
+  "authUrl": "https://accounts.grida.co"
 }
  * ```
  */
@@ -43,7 +43,7 @@ export interface AuthProxySessionStartResult {
  * the request dto
  */
 export interface AuthProxySessionStartRequest {
-    appId: _BridgedFirstPartyAuthProxyEnabledApp;
+    appId: _FirstPartyAuthProxyEnabledApp;
     /**
      * the client instance id. - this may be managed locally.
      */
@@ -54,7 +54,7 @@ export interface AuthProxySessionStartRequest {
     mode?: ProxyAuthenticationMode;
     /**
      * redirect after authentication is complete.
-     * e.g. `https://bridged.xyz` | `bridged://app-main` | `any_uri`
+     * e.g. `https://grida.co` | `grida://app-main` | `any_uri`
      *
      * exceptionally follows snake_case naming convention to match url param.
      * If non specified, it will use the default fallback logic for each app's central configuration - e.g. `xyz.bridged.assistant.figma` will automatically redirect to `figma://`
@@ -66,16 +66,16 @@ export interface AuthProxySessionStartRequest {
  * solid & static app id of auth proxy enabled (allowed) bridged apps. other than below will be blocked to perform auth proxy.
  * use .(dot) and _(underscore) for specifing app id. (also package id)
  */
-export type _BridgedFirstPartyAuthProxyEnabledApp =
-    | "xyz.bridged.developer_sandbox" // bridged developer sandbox abstract dummy app
-    | "xyz.bridged.assistant" // bridged assistant
-    | "xyz.bridged.assistant.figma" // bridged assistant (on figma)
-    | "xyz.bridged.assistant.sketch" // bridged assistant (on sketch)
-    | "xyz.bridged.assistant.xd" // bridged assistant (on xd)
-    | "xyz.bridged.bridged" // bridged desktop app
-    | "xyz.bridged.cli" // bridged cli login
-    | "xyz.bridged.vscode" // bridged vscode extension
-    | "xyz.bridged.jetbrains"; // bridged jetbrains plugin
+export type _FirstPartyAuthProxyEnabledApp =
+    | "co.grida.developer_sandbox" // bridged developer sandbox abstract dummy app
+    | "co.grida.assistant" // bridged assistant
+    | "co.grida.assistant.figma" // bridged assistant (on figma)
+    | "co.grida.assistant.sketch" // bridged assistant (on sketch)
+    | "co.grida.assistant.xd" // bridged assistant (on xd)
+    | "co.grida.grida" // bridged desktop app
+    | "co.grida.cli" // bridged cli login
+    | "co.grida.vscode" // bridged vscode extension
+    | "co.grida.jetbrains"; // bridged jetbrains plugin
 
 /**
  * result object of proxy auth. this exposes the access_token.

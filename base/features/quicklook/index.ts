@@ -22,7 +22,7 @@ export interface QuicklookQueryParams {
 
 export function buildConsoleQuicklookUrl(props: QuicklookQueryParams) {
     const querystring = utils_url.encodeQueryData(props);
-    return `https://console.bridged.xyz/quicklook?${querystring}`;
+    return `https://console.grida.co/quicklook?${querystring}`;
 }
 
 export function quickLookFlutterDCC(
@@ -30,7 +30,7 @@ export function quickLookFlutterDCC(
 ): QuickLookResponse {
     // TODO call api
     return {
-        url: "https://console.bridged.xyz/projcets/temp/quicklook",
+        url: "https://console.grida.co/projcets/temp/quicklook",
     };
 }
 
@@ -39,6 +39,6 @@ export function quickLookReact(
 ): QuickLookResponse {
     // TODO call api
     return {
-        url: "https://console.bridged.xyz/projcets/temp/quicklook",
+        url: "https://console.grida.co/projcets/temp/quicklook",
     };
 }
