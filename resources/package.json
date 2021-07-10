@@ -7,7 +7,7 @@
         "prepack": "tsc"
     },
     "dependencies": {
-        "@base-sdk/core": "0.1.0"
+        "@base-sdk/core": "0.1.0-1"
     },
     "devDependencies": {
         "@types/node": "^15.6.0",
