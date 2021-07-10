@@ -7,8 +7,10 @@
         "prepack": "tsc"
     },
     "dependencies": {
-        "@reflect-ui/core": "0.0.2-rc.7-local",
         "axios": "^0.21.0"
+    },
+    "peerDependencies": {
+        "@reflect-ui/core": "^0.0.2-rc.7"
     },
     "devDependencies": {
         "@types/node": "^15.6.0",
