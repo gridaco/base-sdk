@@ -3,7 +3,7 @@
 <!-- 2. replace "<package-name>" from index.ts to it's package name -->
 <!-- 3. remove this comment :) -->
 
-![base-sdk](../_branding/cover.png)
+![base-sdk](../.branding/cover.png)
 
 # BASE SDK `<package-name>`
 
