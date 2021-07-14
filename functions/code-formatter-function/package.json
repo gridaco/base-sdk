@@ -4,13 +4,18 @@
     "main": "dist/index.js",
     "private": false,
     "scripts": {
-        "prepack": "yarn && tsc"
+        "prepack": "yarn && tsc",
+        "test": "jest"
     },
     "dependencies": {
-        "@base-sdk/core": "0.1.0"
+        "@base-sdk/core": "0.1.0",
+        "axios": "^0.21.1"
     },
     "devDependencies": {
+        "@types/jest": "^26.0.24",
         "@types/node": "^15.6.0",
+        "jest": "^27.0.6",
+        "ts-jest": "^27.0.3",
         "typescript": "^4.2.4"
     },
     "files": [
