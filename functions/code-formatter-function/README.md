@@ -3,14 +3,14 @@
 <!-- 2. replace "<package-name>" from index.ts to it's package name -->
 <!-- 3. remove this comment :) -->
 
-![base-sdk](../_branding/cover.png)
+![base-sdk](../../.branding/cover.png)
 
-# BASE SDK `<package-name>`
+# BASE SDK `functions-code-format`
 
 ## Installation
 
 ```sh
-yarn add @base-sdk/<package-name>
+yarn add @base-sdk/functions-code-format
 ```
 
 ## Usage
@@ -19,7 +19,7 @@ yarn add @base-sdk/<package-name>
 
 ## What is BASE?
 
-Base is an opensource firebase alternative for building enterprise level applications. the backend runs on lambda as MSA, and you can self-host it if you want. the backend is available at [bridgedxyz/base](https://github.com/bridgedxyz/base)
+Base is an opensource firebase alternative for building enterprise level applications. the backend runs on lambda as MSA, and you can self-host it if you want. the backend is available at [gridaco/base](https://github.com/gridaco/base)
 
 ## Follow us & Learn more
 

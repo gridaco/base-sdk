@@ -1,4 +1,4 @@
-![base-sdk](../_branding/cover.png)
+![base-sdk](../.branding/cover.png)
 
 # BASE SDK hosting
 

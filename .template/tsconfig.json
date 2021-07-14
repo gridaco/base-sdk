@@ -4,5 +4,5 @@
         "outDir": "./dist",
         "baseUrl": "./"
     },
-    "exclude": ["node_modules", "example", "dist", "docs"]
+    "exclude": ["node_modules", "example", "dist", "docs", "__test__"]
 }
