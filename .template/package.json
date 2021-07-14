@@ -20,5 +20,8 @@
         "dist/**/*.d.ts",
         "LICENSE",
         "README.md"
-    ]
+    ],
+    "publishConfig": {
+        "access": "public"
+    }
 }
