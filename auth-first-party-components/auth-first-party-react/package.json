@@ -1,0 +1,15 @@
+{
+    "name": "@base-sdk/auth-first-party-react",
+    "description": "First party authenticatoin utilities for ReactJS. the source is public, yet only be modified by Internal BASE Team",
+    "authors": "Grida.co",
+    "version": "0.0.0",
+    "main": "dist/index.js",
+    "dependencies": {},
+    "peerDependencies": {
+        "@emotion/styled": "^11.3.0",
+        "react": "^17.0.2"
+    },
+    "devDependencies": {
+        "@types/react": "^17.0.14"
+    }
+}
