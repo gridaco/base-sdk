@@ -1,0 +1,33 @@
+{
+    "name": "@base-sdk-fp/auth-components-react",
+    "description": "First party authenticatoin utilities for ReactJS. the source is public, yet only be modified by Internal BASE Team",
+    "authors": "Grida.co",
+    "version": "0.0.1",
+    "main": "dist/index.js",
+    "private": false,
+    "scripts": {
+        "prepack": "tsc"
+    },
+    "dependencies": {
+        "@base-sdk-fp/auth": "0.1.0-2"
+    },
+    "peerDependencies": {
+        "@emotion/styled": "^11.3.0",
+        "react": "^17.0.2"
+    },
+    "devDependencies": {
+        "@types/react": "^17.0.14",
+        "typescript": "^4.3.5"
+    },
+    "files": [
+        "dist/index.js",
+        "dist/index.d.ts",
+        "dist/**/*.js",
+        "dist/**/*.d.ts",
+        "LICENSE",
+        "README.md"
+    ],
+    "publishConfig": {
+        "access": "public"
+    }
+}

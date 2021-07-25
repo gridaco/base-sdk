@@ -1,1 +1,0 @@
-# Firstparty integration usage only.
