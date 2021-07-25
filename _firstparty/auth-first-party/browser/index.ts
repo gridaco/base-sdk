@@ -1,3 +1,2 @@
-export function isAuthenticated(): boolean {
-    return false;
-}
+export { isAuthenticated } from "./is-authenticated-with-cache";
+export { verifyBorwserAuth } from "./verify-browser-auth";
