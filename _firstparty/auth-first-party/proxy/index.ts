@@ -5,7 +5,7 @@ export * from "./ws";
 import { totp } from "otplib";
 import { AuthProxyProcBase } from "./proc-base";
 import { SseAuthProxyProc } from "./sse";
-import { LogPollingAuthProxyProc } from "./lopo";
+import { LogPollingAuthProxyProc } from "./longpoll";
 import { _api_newProxySession } from "./api";
 import { AuthProxySessionStartRequest } from "./types";
 
