@@ -23,7 +23,10 @@ export async function requesetProxyAuth(
         autoOpen?: boolean;
     }
 ): Promise<ProxyAuthResult> {
-    // todo
+    if (!secret) {
+        throw "cannot request session with empty secret";
+    }
+
     const token = totp.generate(secret);
     const session = await _api_newProxySession(token, request);
 
