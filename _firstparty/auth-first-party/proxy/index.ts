@@ -12,7 +12,7 @@ import { AuthProxySessionStartRequest } from "./types";
 export async function requesetProxyAuth(
     /**
      * for oss development, defaults to `"00000000"`
-     * enter key for `BRIDGED_FIRST_PARTY_PROXY_AUTH_REQUEST_TOTP_SECRET`
+     * enter key for `GRIDA_FIRST_PARTY_PROXY_AUTH_REQUEST_TOTP_SECRET`
      */
     secret: string,
     request: AuthProxySessionStartRequest,
