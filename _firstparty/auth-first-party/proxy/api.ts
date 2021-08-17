@@ -41,6 +41,10 @@ export async function _api_newProxySession(
  * @todo - todo. this aint implemented.
  * @returns
  */
-export async function _api_checkSessionAgain(): Promise<ProxyAuthResult | null> {
+export async function _api_checkSessionAgain(p: {
+    token: string;
+    session: string;
+}): Promise<ProxyAuthResult | null> {
+    // request to "with-proxy/:session/check"
     return null;
 }
