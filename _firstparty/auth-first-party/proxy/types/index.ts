@@ -89,13 +89,14 @@ export type _FirstPartyAuthProxyEnabledApp =
 export interface ProxyAuthResult {
     /**
      * ping of the clientId. same as request.
+     * @deprecated this is optionally empty. do not use or use with caution.
      */
-    clientId: string;
+    clientId?: string;
     /**
      * success result of the process. success can be false when user cancel the process on the browser, or proxy session is expired (timeout)
      */
     success: boolean;
-    message: string;
+    message?: string;
     /**
      * access token issued by proxy auth request. saved on a secure place, for only non-browser environment.
      *

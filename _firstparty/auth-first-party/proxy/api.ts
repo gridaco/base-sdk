@@ -33,6 +33,10 @@ export async function _api_newProxySession(
     return _newProxySessionReqRes.data;
 }
 
+interface _TempProxySession {
+    id: string;
+    payload: string;
+}
 /**
  * check the result regarding less to the realtime proxy mode the original request was using.
  *
@@ -45,6 +49,15 @@ export async function _api_checkSessionAgain(p: {
     token: string;
     session: string;
 }): Promise<ProxyAuthResult | null> {
-    // request to "with-proxy/:session/check"
-    return null;
+    try {
+        const resp = await authProxyClient.get<_TempProxySession>(
+            `/session/${p.session}/check`
+        );
+        return {
+            access_token: resp.data.payload,
+            success: true,
+        };
+    } catch (_) {
+        return null;
+    }
 }
