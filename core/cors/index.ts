@@ -37,7 +37,7 @@ export function useAxiosCors(
     axios.interceptors.request.use((cf) => {
         return {
             ...cf,
-            baseURL: buildCorsFreeUrl(cf.baseURL),
+            baseURL: buildCorsFreeUrl(cf.baseURL!),
         };
     });
 }
