@@ -2,6 +2,7 @@ import { __HOSTS } from "@base-sdk/core";
 import { ProxyAuthResult } from "../types";
 import { AuthProxyProcBase } from "../proc-base";
 import { _api_checkSessionAgain } from "../api";
+import { totp } from "otplib";
 
 /**
  * @deprecated not implemented
@@ -13,9 +14,7 @@ class LongPollingSource {
 
 const _DEFAULT_POLLING_INTERVAL = 1000;
 const _DEFAULT_POLLING_TIMEOUT = 60000;
-/**
- * @deprecated - not used
- */
+
 export class LogPollingAuthProxyProc extends AuthProxyProcBase<LongPollingSource> {
     resolve: (result: ProxyAuthResult) => void;
     reject: (reason?: any) => void;
@@ -36,18 +35,22 @@ export class LogPollingAuthProxyProc extends AuthProxyProcBase<LongPollingSource
     }
 
     onResult(): Promise<ProxyAuthResult> {
-        return poll(this.session);
+        return this.poll();
+    }
+
+    poll() {
+        return poll(this.secret, this.session);
     }
 }
 
-async function poll(session: string): Promise<ProxyAuthResult> {
-    const token = ""; // TODO:
+async function poll(secret: string, session: string): Promise<ProxyAuthResult> {
+    const token = totp.generate(secret);
     const check = await _api_checkSessionAgain({
         token: token,
         session: session,
     });
 
-    const _poll = () => poll(session);
+    const _poll = () => poll(secret, session);
 
     if (!check) {
         // Status 502 is a connection timeout error,
