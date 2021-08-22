@@ -12,9 +12,9 @@ class LongPollingSource {
     onmessage: (ev: MessageEvent) => void;
 }
 
-const _DEFAULT_POLLING_INTERVAL = 2000; // 2 sec
-const _DEFAULT_POLLING_TIMEOUT = 60000;
-const _DEFAULT_POLLING_INITIAL_DELAY = 180; // 5 sec
+const _DEFAULT_POLLING_INTERVAL = 10000; // 10 sec
+const _DEFAULT_POLLING_TIMEOUT = 60000 * 2; // 2 min
+const _DEFAULT_POLLING_INITIAL_DELAY = 15000; // 15 sec
 export class LogPollingAuthProxyProc extends AuthProxyProcBase<LongPollingSource> {
     resolve: (result: ProxyAuthResult) => void;
     reject: (reason?: any) => void;
@@ -58,19 +58,20 @@ async function poll(secret: string, session: string): Promise<ProxyAuthResult> {
     });
 
     const _poll = () => poll(secret, session);
-
-    if (!check) {
-        // Status 502 is a connection timeout error,
-        // may happen when the connection was pending for too long,
-        // and the remote server or a proxy closed it
-        // let's reconnect
-        return await _poll();
-    } else if (!check.success) {
+    const wait = async () => {
         await new Promise((resolve) =>
             setTimeout(resolve, _DEFAULT_POLLING_INTERVAL)
         );
+    };
+
+    if (!check) {
+        await wait();
+        return await _poll();
+    } else if (!check.success) {
+        await wait();
         return await _poll();
     } else {
-        return await _poll();
+        // data is present & the success = true
+        return check;
     }
 }

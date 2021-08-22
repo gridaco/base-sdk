@@ -40,6 +40,7 @@ export async function _api_newProxySession(
 }
 
 interface _TempProxySession {
+    success: boolean;
     id: string;
     payload: string;
 }
@@ -65,7 +66,7 @@ export async function _api_checkSessionAgain(p: {
                 },
             }
         );
-        if (resp.data.payload) {
+        if (resp.data.success) {
             // return only if payload is present.
             return {
                 access_token: resp.data.payload,
@@ -74,6 +75,10 @@ export async function _api_checkSessionAgain(p: {
         }
         return null;
     } catch (_) {
+        if (_.response.status == 404) {
+            // this can only happen when check method is called form somewere else. (eg. explicit check call from user via check button click.)
+            throw _; // if 404, the request is already read by this client. (this won't happen.)
+        }
         return null;
     }
 }
