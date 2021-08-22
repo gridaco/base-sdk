@@ -7,7 +7,7 @@ import {
 } from "../types";
 import axiosRetry from "axios-retry";
 
-const _HOST = "https://accounts.services.bridged.xyz";
+const _HOST = "https://accounts.services.grida.co";
 const authProxyClient = Axios.create({
     baseURL: `${_HOST}/authentication/with-proxy`,
 });
