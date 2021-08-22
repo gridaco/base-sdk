@@ -5,7 +5,7 @@ import { totp } from "otplib";
 import { AuthProxyProcBase } from "./proc-base";
 import { SseAuthProxyProc } from "./sse";
 import { LogPollingAuthProxyProc } from "./longpoll";
-import { _api_newProxySession } from "./api";
+import { _api_newProxySession, _api_checkSessionAgain } from "./api";
 import {
     AuthProxySessionStartRequest,
     AuthProxySessionStartResult,
@@ -91,4 +91,13 @@ export async function requesetProxyAuth(
 
     const session = await openProxyAuthSession(secret, request, config);
     return requesetProxyAuthWithSession(secret, session, request);
+}
+
+/** explicit result checking triggered by user ui interaction. */
+export async function checkProxyAuthResult(secret: string, session: string) {
+    const res = await _api_checkSessionAgain({
+        token: totp.generate(secret),
+        session: session,
+    });
+    return res;
 }

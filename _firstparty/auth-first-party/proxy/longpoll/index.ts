@@ -13,7 +13,7 @@ class LongPollingSource {
 }
 
 const _DEFAULT_POLLING_INTERVAL = 10000; // 10 sec
-const _DEFAULT_POLLING_TIMEOUT = 60000 * 2; // 2 min
+const _DEFAULT_POLLING_TIMEOUT = 60000 * 5; // 5 min
 const _DEFAULT_POLLING_INITIAL_DELAY = 15000; // 15 sec
 export class LogPollingAuthProxyProc extends AuthProxyProcBase<LongPollingSource> {
     resolve: (result: ProxyAuthResult) => void;
@@ -45,19 +45,29 @@ export class LogPollingAuthProxyProc extends AuthProxyProcBase<LongPollingSource
     }
 
     async poll() {
+        /** in unix time ms*/
+        const timeoutat = Date.now() + _DEFAULT_POLLING_TIMEOUT;
         await new Promise((resolve) => setTimeout(resolve, this.delay));
-        return poll(this.secret, this.session);
+        return poll(this.secret, this.session, timeoutat);
     }
 }
 
-async function poll(secret: string, session: string): Promise<ProxyAuthResult> {
+async function poll(
+    secret: string,
+    session: string,
+    timeoutat: number
+): Promise<ProxyAuthResult> {
+    if (Date.now() > timeoutat) {
+        throw "timeout";
+    }
+
     const token = totp.generate(secret);
     const check = await _api_checkSessionAgain({
         token: token,
         session: session,
     });
 
-    const _poll = () => poll(secret, session);
+    const _poll = () => poll(secret, session, timeoutat);
     const wait = async () => {
         await new Promise((resolve) =>
             setTimeout(resolve, _DEFAULT_POLLING_INTERVAL)
