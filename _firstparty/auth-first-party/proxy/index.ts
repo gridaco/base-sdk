@@ -22,6 +22,7 @@ export async function requesetProxyAuth(
          * false by default. if non set, the caller will have to open the session url via url outside of this function.
          */
         autoOpen?: boolean;
+        openner?: (uri: string) => void;
     }
 ): Promise<ProxyAuthResult> {
     if (!secret) {
@@ -34,7 +35,7 @@ export async function requesetProxyAuth(
     // opens the auth session on the browser if config is set so.
     if (config?.autoOpen) {
         try {
-            open(session.authUrl);
+            (config.openner ?? open)(session.authUrl);
         } catch (e) {
             console.error(
                 "cannot open the session via browser. (the platform may not be supported)",
