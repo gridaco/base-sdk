@@ -12,18 +12,24 @@ class LongPollingSource {
     onmessage: (ev: MessageEvent) => void;
 }
 
-const _DEFAULT_POLLING_INTERVAL = 1000;
+const _DEFAULT_POLLING_INTERVAL = 2000; // 2 sec
 const _DEFAULT_POLLING_TIMEOUT = 60000;
-
+const _DEFAULT_POLLING_INITIAL_DELAY = 180; // 5 sec
 export class LogPollingAuthProxyProc extends AuthProxyProcBase<LongPollingSource> {
     resolve: (result: ProxyAuthResult) => void;
     reject: (reason?: any) => void;
 
+    readonly delay: number;
     // readonly evsrc: LongPollingSource;
-    constructor(readonly session: string, readonly secret: string) {
+    constructor(
+        readonly session: string,
+        readonly secret: string,
+        delay?: number
+    ) {
         super(session, secret);
         // this.evsrc = new LongPollingSource();
         // this.evsrc.onmessage = this.__onmessage;
+        this.delay = delay ?? _DEFAULT_POLLING_INITIAL_DELAY;
     }
 
     startListenToSession() {
@@ -38,7 +44,8 @@ export class LogPollingAuthProxyProc extends AuthProxyProcBase<LongPollingSource
         return this.poll();
     }
 
-    poll() {
+    async poll() {
+        await new Promise((resolve) => setTimeout(resolve, this.delay));
         return poll(this.secret, this.session);
     }
 }
