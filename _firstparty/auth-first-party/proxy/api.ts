@@ -11,6 +11,11 @@ const authProxyClient = Axios.create({
     baseURL: `${__HOSTS.INTERNAL_SECURE_ACCOUNTS_SERVICE_HOST}/authentication/with-proxy`,
 });
 
+const authProxyResultClient = Axios.create({
+    baseURL: `${__HOSTS.INTERNAL_SECURE_ACCOUNTS_SERVICE_HOST}/authentication/with-proxy`,
+    withCredentials: true,
+});
+
 // retry is enabled since proxy client uses totp validation. by high chance, first request may throw 403 forbidden.
 axiosRetry(authProxyClient, { retries: 2 });
 cors.useAxiosCors(authProxyClient);
@@ -60,4 +65,17 @@ export async function _api_checkSessionAgain(p: {
     } catch (_) {
         return null;
     }
+}
+
+/**
+ * this returns proxy auth result to the auth server from accounts.grida.co
+ * only used from auth browser.
+ */
+export async function _api_returnProxyAuthResult(p: { session: string }) {
+    const data = {}; /* at this point, we don't need to pass data. */
+    const res = await authProxyResultClient.post<AuthProxySessionStartResult>(
+        `/session/${p.session}/result-from-proxy`,
+        data
+    );
+    return res.data;
 }
