@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { __HOSTS, cors } from "@base-sdk/core";
+import { cors } from "@base-sdk/core";
 import {
     AuthProxySessionStartRequest,
     AuthProxySessionStartResult,
@@ -7,12 +7,13 @@ import {
 } from "../types";
 import axiosRetry from "axios-retry";
 
+const _HOST = "https://accounts.services.bridged.xyz";
 const authProxyClient = Axios.create({
-    baseURL: `${__HOSTS.INTERNAL_SECURE_ACCOUNTS_SERVICE_HOST}/authentication/with-proxy`,
+    baseURL: `${_HOST}/authentication/with-proxy`,
 });
 
 const authProxyResultClient = Axios.create({
-    baseURL: `${__HOSTS.INTERNAL_SECURE_ACCOUNTS_SERVICE_HOST}/authentication/with-proxy`,
+    baseURL: `${_HOST}/authentication/with-proxy`,
     withCredentials: true,
 });
 
