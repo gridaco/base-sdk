@@ -57,12 +57,22 @@ export async function _api_checkSessionAgain(p: {
 }): Promise<ProxyAuthResult | null> {
     try {
         const resp = await authProxyClient.get<_TempProxySession>(
-            `/session/${p.session}/check`
+            `/session/${p.session}/check`,
+            {
+                params: {
+                    // auth token is accepted with query param for this api.
+                    token: p.token,
+                },
+            }
         );
-        return {
-            access_token: resp.data.payload,
-            success: true,
-        };
+        if (resp.data.payload) {
+            // return only if payload is present.
+            return {
+                access_token: resp.data.payload,
+                success: true,
+            };
+        }
+        return null;
     } catch (_) {
         return null;
     }
