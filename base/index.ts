@@ -13,7 +13,6 @@ export * from "./asset-repository";
 export * as resources from "@base-sdk/resources";
 export * from "./design";
 export * as versions from "./versions";
-export * from "./scene";
 export * as types from "./types";
 
 // export cors explicitly
