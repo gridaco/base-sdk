@@ -10,7 +10,19 @@ yarn add @base-sdk/scene-store
 
 ## Usage
 
-<!-- add sdk usage example here -->
+```ts
+import { SceneStoreService, SceneRecord } from "@base-sdk/scene-store";
+
+const service = new SceneStoreService();
+
+// when authenticated
+service.list();
+service.register({
+    /* ... */
+});
+
+const sharedSceneInfo: SceneRecord = await service.getShared("shared-scene-id");
+```
 
 ## What is BASE?
 
