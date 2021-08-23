@@ -1,8 +1,6 @@
-interface SceneRecord {
-    //
-}
+import { SceneRecord } from "./server-types";
 
-interface PublicSharedSceneRecord {}
+type PublicSharedSceneRecord = SceneRecord;
 
 export type GetSceneRecordResult = SceneRecord;
 export type GetManySceneRecordResult = ReadonlyArray<SceneRecord>;

@@ -1,36 +1,8 @@
-/** server side object */
-enum __S_DesignOrigin {
-    /** figma desktop - figma plugin */
-    FIGMA_DESKTOP = "FIGMA_DESKTOP",
-    /** figma web // via api / url */
-    FIGMA_WEB = "FIGMA_WEB",
-    /** sketch desktop - sketch file or sketch plugin */
-    SKETCH_DESKTOP = "SKETCH_DESKTOP",
-    /** via sketch file upload */
-    SKETCH_FILE = "SKETCH_FILE",
-    /** xd desktop - xd plugin */
-    XD_DESKTOP = "XD_DESKTOP",
-    /**  design from uploaded image (unknown source) */
-    IMAGE_UPLOAD = "IMAGE_UPLOAD",
-    /** totally unknown source */
-    UNKNOWN = "UNKNOWN",
-}
-
-/** server side object */
-enum __S_StorableSceneType {
-    /** any node */
-    ANYNODE = "ANYNODE",
-    /** node that is detected and marked as screen */
-    SCREEN = "SCREEN",
-    /** node that is a component host */
-    COMPONENT = "COMPONENT",
-    /** node that is a documentation */
-    DOCS = "DOCS",
-}
-
-interface __PutSharingPolicy {
-    policy: "none" | "*";
-}
+import {
+    __PutSharingPolicy,
+    __S_DesignOrigin,
+    __S_StorableSceneType,
+} from "./server-types";
 
 export interface SceneRegisterRequest {
     /** the id of this scene's origin design file */
