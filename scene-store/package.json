@@ -1,6 +1,6 @@
 {
     "name": "@base-sdk/scene-store",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "main": "dist/index.js",
     "private": false,
     "scripts": {
