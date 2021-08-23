@@ -10,7 +10,7 @@ interface QuickLookResponse {
     url: string;
 }
 
-export interface QuicklookQueryParams {
+export interface ScenePreviewParams {
     id: string;
     framework: AppFramework;
     language: AppLanguage;
@@ -20,9 +20,9 @@ export interface QuicklookQueryParams {
     h?: number;
 }
 
-export function buildConsoleQuicklookUrl(props: QuicklookQueryParams) {
+export function buildScenePreviewUrl(props: ScenePreviewParams) {
     const querystring = utils_url.encodeQueryData(props);
-    return `https://console.grida.co/quicklook?${querystring}`;
+    return `https://app.grida.co/preview?${querystring}`;
 }
 
 export function quickLookFlutterDCC(
