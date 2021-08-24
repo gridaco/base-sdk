@@ -10,8 +10,6 @@ export function _configure(token: string) {
 const axios = () =>
     Axios.create({
         baseURL: "https://scene-store.bridged.cc/scenes",
-        withCredentials:
-            true /** cookie is included, thous the auth handling could be differ. */,
         headers: {
             Authorization: `Bearer ${__token}`,
         },
