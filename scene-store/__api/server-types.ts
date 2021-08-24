@@ -28,14 +28,15 @@ export enum __S_StorableSceneType {
     DOCS = "DOCS",
 }
 
+export type SceneSharingPolicy = "none" | "*";
 export interface __PutSharingPolicy {
-    policy: "none" | "*";
+    policy: SceneSharingPolicy;
 }
 
 export interface SceneRecord {
     id: string;
     owner: string;
-    sharing: __PutSharingPolicy;
+    sharing: SceneSharingPolicy;
     fileId: string;
     nodeId: string;
     sdkVersion: string;

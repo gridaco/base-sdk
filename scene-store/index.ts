@@ -1,3 +1,3 @@
 // preserve
 export * from "./service";
-export type { SceneRecord } from "./__api/server-types";
+export type { SceneRecord, SceneSharingPolicy } from "./__api/server-types";
