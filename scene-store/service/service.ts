@@ -37,8 +37,10 @@ export class SceneStoreService {
                     this.credential.token ?? DEFAULT_OTP_LOADER
                 )();
                 _configure(act);
+                break;
             case "token":
                 _configure((this.credential as StaticToken).token);
+                break;
         }
     }
 
