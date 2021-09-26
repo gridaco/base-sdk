@@ -43,7 +43,7 @@ export async function _api_updateSharingPolicy(
     const _r = await axios().post<res.UpdateSharingPolicyResult>(
         `${id}/sharing`,
         {
-            ...req,
+            ...req.sharingPolicy,
         }
     );
 
