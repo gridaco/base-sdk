@@ -1,10 +1,10 @@
-import { IconConfig } from "@reflect-ui/core";
+import { NamedIconConfig } from "@reflect-ui/core";
 import { cors } from "@base-sdk/core";
 import Axios from "axios";
 
 export async function loadSvg(
     key: string,
-    config: IconConfig
+    config: NamedIconConfig
 ): Promise<string> {
     const url = makeIconUrl(key, config);
     const requestUrl = cors.buildCorsFreeUrl(url);
@@ -14,6 +14,6 @@ export async function loadSvg(
     return raw;
 }
 
-export function makeIconUrl(name: string, config: IconConfig): string {
+export function makeIconUrl(name: string, config: NamedIconConfig): string {
     return `https://reflect-icons.s3-us-west-1.amazonaws.com/${config.host}/${name}.svg`;
 }
