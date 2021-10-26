@@ -1,5 +1,4 @@
 import { NamedIconConfig } from "@reflect-ui/core";
-import { cors } from "@base-sdk/core";
 import Axios from "axios";
 
 export async function loadSvg(
@@ -7,10 +6,7 @@ export async function loadSvg(
     config: NamedIconConfig
 ): Promise<string> {
     const url = makeIconUrl(key, config);
-    const requestUrl = cors.buildCorsFreeUrl(url);
-    // console.log(`svg request: `, requestUrl);
-    const raw = await (await Axios.get(requestUrl)).data;
-    // console.log(`icon raw data loaded for ${key}, length of ${raw.length}`);
+    const raw = await (await Axios.get(url)).data;
     return raw;
 }
 
