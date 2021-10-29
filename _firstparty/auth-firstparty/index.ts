@@ -4,3 +4,4 @@ export * from "./types";
 export * as __auth_proxy from "./proxy";
 
 export * as browser from "./browser";
+export * as tunnel from "./tunnel";
