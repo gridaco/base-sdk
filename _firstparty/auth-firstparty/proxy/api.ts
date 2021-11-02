@@ -1,5 +1,4 @@
 import Axios from "axios";
-import { cors } from "@base-sdk/core";
 import {
     AuthProxySessionStartRequest,
     AuthProxySessionStartResult,
@@ -19,23 +18,21 @@ const authProxyResultClient = Axios.create({
 
 // retry is enabled since proxy client uses totp validation. by high chance, first request may throw 403 forbidden.
 axiosRetry(authProxyClient, { retries: 2 });
-cors.useAxiosCors(authProxyClient);
 
 export async function _api_newProxySession(
     token: string,
     request: AuthProxySessionStartRequest
 ): Promise<AuthProxySessionStartResult> {
-    const _newProxySessionReqRes =
-        await authProxyClient.post<AuthProxySessionStartResult>(
-            "/session/new",
-            request,
-            {
-                params: {
-                    // auth token is accepted with query param for this api.
-                    token: token,
-                },
-            }
-        );
+    const _newProxySessionReqRes = await authProxyClient.post<AuthProxySessionStartResult>(
+        "/session/new",
+        request,
+        {
+            params: {
+                // auth token is accepted with query param for this api.
+                token: token,
+            },
+        }
+    );
     return _newProxySessionReqRes.data;
 }
 
