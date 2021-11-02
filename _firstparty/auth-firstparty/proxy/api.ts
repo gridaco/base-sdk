@@ -1,4 +1,5 @@
 import Axios from "axios";
+import { cors } from "@base-sdk/core";
 import {
     AuthProxySessionStartRequest,
     AuthProxySessionStartResult,
@@ -18,6 +19,9 @@ const authProxyResultClient = Axios.create({
 
 // retry is enabled since proxy client uses totp validation. by high chance, first request may throw 403 forbidden.
 axiosRetry(authProxyClient, { retries: 2 });
+cors.useAxiosCors(authProxyClient, {
+    apikey: process.env.NEXT_PUBLIC_CORS_GRIDA_API_KEY,
+});
 
 export async function _api_newProxySession(
     token: string,
