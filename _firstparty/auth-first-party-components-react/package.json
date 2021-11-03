@@ -9,7 +9,7 @@
         "prepack": "tsc"
     },
     "dependencies": {
-        "@base-sdk-fp/auth": "0.1.0-2"
+        "@base-sdk-fp/auth": "0.1.0-3"
     },
     "peerDependencies": {
         "@emotion/styled": "^11.3.0",
