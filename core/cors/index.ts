@@ -4,9 +4,13 @@ import { HOST } from "../constants";
 /**
  * A base axios object that holds cors.bridged.cc as base host
  */
-export const corsAxios = Axios.create({
-    baseURL: HOST.CORS_SERVICE_HOST,
-});
+export const corsAxios = (apikey: string) =>
+    Axios.create({
+        baseURL: HOST.CORS_SERVICE_HOST,
+        headers: {
+            "x-cors-grida-api-key": apikey,
+        },
+    });
 
 /**
  * @deprecated - use `useAxiosCors` instead. the proxy config won't work as expected.
@@ -28,6 +32,8 @@ export function useAxiosCors(
     config?: {
         // enabled by default. if false not set explicitly, cors will be enabled.
         enabled?: boolean;
+        // required - https://github.com/gridaco/base/issues/23
+        apikey?: string;
     }
 ) {
     // if explicitly disabled, then do nothing.
@@ -38,6 +44,10 @@ export function useAxiosCors(
         return {
             ...cf,
             baseURL: buildCorsFreeUrl(cf.baseURL!),
+            headers: {
+                ...cf.headers,
+                "x-cors-grida-api-key": config?.apikey,
+            },
         };
     });
 }
