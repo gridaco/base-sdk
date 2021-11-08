@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@base-sdk-fp/core@0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@base-sdk-fp/core/-/core-0.0.0.tgz#f3660da51726dd8dc00a1949867f89f831ce0fa2"
-  integrity sha512-8hEzpg9om+Iz1hvhX11mVerfYCB1ViKM7ugDYBLOs8y/AmzvrEOeWNkug2Rnj+iMeOWL0qtOrVfe+cIznk8DOg==
+"@base-sdk-fp/core@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@base-sdk-fp/core/-/core-0.0.1.tgz#6f529041dde5fd6b360f1a73408586c174f34acc"
+  integrity sha512-3t9vq9avY52PTSNApXf+5hq12Y/uBVtuLt9m9Ps0VT5PZE5ZjmZhI517z2HHt7gzwG4IntceneJdbn9/qQiSEQ==
 
 "@base-sdk/core@0.1.0-1":
   version "0.1.0-1"
