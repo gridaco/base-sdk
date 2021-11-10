@@ -7,7 +7,7 @@
     },
     "dependencies": {
         "@base-sdk/build": "0.1.0-3",
-        "@base-sdk/core": "0.1.0-1",
+        "@base-sdk/core": "0.1.0-2",
         "@base-sdk/hosting": "0.1.0-1",
         "@base-sdk/resources": "0.1.0",
         "@base-sdk/url": "0.1.0-1"
