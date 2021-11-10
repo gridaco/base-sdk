@@ -1,8 +1,5 @@
 import Axios from "axios";
-import {
-    _is_internal_dev,
-    __internal_dev_hosts,
-} from "@base-sdk-fp/core/dist/internal-dev";
+import { _is_internal_dev, __internal_dev_hosts } from "@base-sdk-fp/core";
 
 const _host = _is_internal_dev()
     ? //// if internal dev mode, return localhost environment for calling account services
