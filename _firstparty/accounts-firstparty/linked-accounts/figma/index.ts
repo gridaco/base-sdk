@@ -1,30 +1,46 @@
-import Axios from "axios";
-import { _is_internal_dev, __internal_dev_hosts } from "@base-sdk-fp/core";
+import { _BaseRestfulClient } from "@base-sdk-fp/core";
 
-const _host = _is_internal_dev()
-    ? //// if internal dev mode, return localhost environment for calling account services
-      __internal_dev_hosts.__INTERNAL_DEV_ACCOUNTS_SERVICES_HOST
-    : "https://accounts.services.grida.co";
+/**
+ * provide the client with `initClient`
+ */
+export class FigmaLinkedAccountsClient {
+    public static basePath = "/linked-accounts/figma";
+    constructor(private readonly client: _BaseRestfulClient) {}
 
-const restclient = Axios.create({
-    baseURL: `${_host}/linked-accounts/figma`,
-    withCredentials: true, // authentication using secure cookie
-});
+    private get api() {
+        return this.client._axios;
+    }
 
-export async function getPrimaryLinkedFigmaAccount() {
-    return (await restclient.get("/primary")).data;
-}
+    /**
+     * returns the primary linked figma account
+     * @returns
+     */
+    async getPrimaryLinked() {
+        return (
+            await this.api.get(FigmaLinkedAccountsClient.basePath + "/primary")
+        ).data;
+    }
 
-export async function getLinkedFigmaAccounts() {
-    return (await restclient.get("/")).data;
-}
+    /**
+     * returns all linked figma accounts
+     * @returns
+     */
+    async getLinkedAccounts() {
+        return (await this.api.get(FigmaLinkedAccountsClient.basePath + "/"))
+            .data;
+    }
 
-export async function hasLinkedFigmaAccount() {
-    try {
-        const r = await getPrimaryLinkedFigmaAccount();
-        if (r !== undefined) {
-            return true;
-        }
-    } catch (_) {}
-    return false;
+    /**
+     * returns if there is any linked figma account.
+     * @returns
+     */
+    async hasLinkedFigmaAccount() {
+        try {
+            const r = await this.getPrimaryLinked();
+            if (r !== undefined) {
+                return true;
+            }
+        } catch (_) {}
+        return false;
+    }
 }
