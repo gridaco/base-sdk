@@ -1,0 +1,23 @@
+{
+  "lerna": "4.0.0",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "packages": [
+    "./[!_]*"
+  ],
+  "command": {
+    "version": {
+      "exact": true
+    },
+    "publish": {
+      "npmClient": "npm",
+      "allowBranch": [
+        "staging",
+        "main",
+        "canary"
+      ],
+      "registry": "https://registry.npmjs.org/"
+    }
+  },
+  "version": "0.1.0-5"
+}
