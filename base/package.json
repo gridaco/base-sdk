@@ -1,16 +1,16 @@
 {
     "name": "@base-sdk/base",
-    "version": "0.1.0-5",
+    "version": "0.1.1-0",
     "main": "dist/index.js",
     "scripts": {
         "prepack": "tsc"
     },
     "dependencies": {
-        "@base-sdk/build": "0.1.0-3",
-        "@base-sdk/core": "0.1.0-1",
-        "@base-sdk/hosting": "0.1.0-1",
-        "@base-sdk/resources": "0.1.0",
-        "@base-sdk/url": "0.1.0-1"
+        "@base-sdk/build": "0.1.1-0",
+        "@base-sdk/core": "0.1.1-0",
+        "@base-sdk/hosting": "0.1.1-0",
+        "@base-sdk/resources": "0.1.1-0",
+        "@base-sdk/url": "0.1.1-0"
     },
     "devDependencies": {
         "@types/node": "^15.6.0",

@@ -17,11 +17,33 @@ const authProxyResultClient = Axios.create({
     withCredentials: true,
 });
 
-// retry is enabled since proxy client uses totp validation. by high chance, first request may throw 403 forbidden.
-axiosRetry(authProxyClient, { retries: 2 });
-cors.useAxiosCors(authProxyClient, {
-    apikey: process.env.NEXT_PUBLIC_CORS_GRIDA_API_KEY,
-});
+/**
+ * this must be called before any other auth proxy calls in limited environments, such as plugin env.
+ */
+export function preconfigure({
+    useRetry = true,
+    useCors,
+}: {
+    useRetry?: boolean;
+    useCors?: {
+        apiKey?: string;
+    };
+}) {
+    if (useRetry) {
+        // retry is enabled since proxy client uses totp validation. by high chance, first request may throw 403 forbidden.
+        axiosRetry(authProxyClient, { retries: 2 });
+    }
+
+    if (useCors) {
+        cors.useAxiosCors(authProxyClient, {
+            enabled: true,
+            apikey:
+                useCors.apiKey ??
+                process.env.CORS_GRIDA_API_KEY ??
+                process.env.NEXT_PUBLIC_CORS_GRIDA_API_KEY,
+        });
+    }
+}
 
 export async function _api_newProxySession(
     token: string,

@@ -1,13 +1,13 @@
 {
     "name": "@base-sdk-fp/accounts",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "main": "dist/index.js",
     "private": false,
     "scripts": {
         "prepack": "tsc"
     },
     "dependencies": {
-        "@base-sdk-fp/core": "0.0.0",
+        "@base-sdk-fp/core": "0.0.3",
         "@base-sdk/core": "0.1.0-1"
     },
     "peerDependencies": {

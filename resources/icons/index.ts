@@ -3,10 +3,19 @@ import Axios from "axios";
 
 export async function loadSvg(
     key: string,
-    config: NamedIconConfig
+    config: NamedIconConfig,
+    options?: {
+        disable_cache: boolean;
+    }
 ): Promise<string> {
+    const headers = {};
+    if (options?.disable_cache) {
+        headers["Cache-Control"] = "no-cache";
+    }
+
     const url = makeIconUrl(key, config);
-    const raw = await (await Axios.get(url)).data;
+    const raw = await // s3 cors issue. fetching resource wil cause cors issue with 200, if cache is enabled. (don't know why !)
+    (await Axios.get(url, { headers: headers })).data;
     return raw;
 }
 
