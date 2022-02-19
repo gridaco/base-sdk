@@ -3,6 +3,7 @@
     "version": "0.1.1",
     "main": "dist/index.js",
     "scripts": {
+        "clean": "rimraf dist",
         "prepack": "tsc"
     },
     "dependencies": {

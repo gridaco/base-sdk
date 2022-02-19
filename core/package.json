@@ -4,6 +4,7 @@
     "main": "dist/index.js",
     "private": false,
     "scripts": {
+        "clean": "rimraf dist",
         "prepack": "tsc"
     },
     "dependencies": {

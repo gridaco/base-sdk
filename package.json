@@ -1,6 +1,5 @@
 {
   "name": "base-sdk",
-  "version": "0.0.2-1",
   "description": "bridged's service access api node wrapper",
   "repository": "https://github.com/bridgedxyz/services",
   "authors": [
@@ -12,8 +11,13 @@
   "workspaces": [
     "./[!_]*"
   ],
-  "scripts": {},
+  "scripts": {
+    "typescript": "lerna run typescript",
+    "prepublish": "lerna run prepublish",
+    "publish-stable": "lerna version --force-publish"
+  },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "rimraf": "^3.0.2"
   }
 }
