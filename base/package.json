@@ -1,17 +1,17 @@
 {
     "name": "@base-sdk/base",
-    "version": "0.1.1",
+    "version": "0.1.3",
     "main": "dist/index.js",
     "scripts": {
         "clean": "rimraf dist",
         "prepack": "tsc"
     },
     "dependencies": {
-        "@base-sdk/build": "0.1.1",
-        "@base-sdk/core": "0.1.1",
-        "@base-sdk/hosting": "0.1.1",
-        "@base-sdk/resources": "0.1.1",
-        "@base-sdk/url": "0.1.1"
+        "@base-sdk/build": "0.1.3",
+        "@base-sdk/core": "0.1.3",
+        "@base-sdk/hosting": "0.1.3",
+        "@base-sdk/resources": "0.1.3",
+        "@base-sdk/url": "0.1.3"
     },
     "devDependencies": {
         "@types/node": "^15.6.0",
