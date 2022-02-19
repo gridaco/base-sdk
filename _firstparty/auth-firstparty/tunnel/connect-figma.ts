@@ -1,7 +1,4 @@
-import {
-    _is_internal_dev,
-    __internal_dev_hosts,
-} from "@base-sdk-fp/core/internal-dev";
+import { _is_internal_dev, __internal_dev_hosts } from "@base-sdk-fp/core";
 
 export function makeurl__connect_figma(): string {
     const _host = _is_internal_dev()
