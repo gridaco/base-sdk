@@ -1,6 +1,7 @@
 import { FileHostingRequest, FileHostingResult } from "../types";
 import { __HOSTS } from "@base-sdk/core";
 try {
+    // @ts-ignore
     global.FormData = require("form-data");
 } catch (_) {}
 
