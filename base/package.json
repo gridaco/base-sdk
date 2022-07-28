@@ -2,8 +2,10 @@
     "name": "@base-sdk/base",
     "version": "0.1.1-1",
     "main": "dist/index.js",
+    "private": false,
     "scripts": {
-        "prepack": "tsc"
+        "clean": "rimraf dist",
+        "build": "yarn clean && tsc"
     },
     "dependencies": {
         "@base-sdk/build": "0.1.1-0",
@@ -24,5 +26,8 @@
         "dist/**/*.d.ts",
         "LICENSE",
         "README.md"
-    ]
+    ],
+    "publishConfig": {
+        "access": "public"
+    }
 }

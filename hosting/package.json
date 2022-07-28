@@ -2,8 +2,9 @@
     "name": "@base-sdk/hosting",
     "version": "0.1.1-0",
     "main": "dist/index.js",
+    "private": false,
     "scripts": {
-        "prepack": "tsc"
+        "build": "tsc"
     },
     "dependencies": {
         "@base-sdk/core": "0.1.0",
@@ -20,5 +21,8 @@
         "dist/**/*.d.ts",
         "LICENSE",
         "README.md"
-    ]
+    ],
+    "publishConfig": {
+        "access": "public"
+    }
 }

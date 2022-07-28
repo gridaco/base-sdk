@@ -6,7 +6,8 @@
     "main": "dist/index.js",
     "private": false,
     "scripts": {
-        "prepack": "tsc"
+        "clean": "rimraf dist",
+        "build": "yarn clean && tsc"
     },
     "dependencies": {
         "@base-sdk-fp/auth": "0.1.0-8"
