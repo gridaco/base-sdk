@@ -2,13 +2,13 @@
 # yarn lockfile v1
 
 
-"@base-sdk/build@0.1.0-2":
-  version "0.1.0-2"
-  resolved "https://registry.yarnpkg.com/@base-sdk/build/-/build-0.1.0-2.tgz#5a3432de3fccfe6ca34eafcb889e85a35cab86ee"
-  integrity sha512-F8fwscQKx1MTyBtIrRaYNA6mDhflIgwKJaq+MY2PZcgcDXgfQKZYRpVlTn6gW1hPbUvSBhwuV2Guk1Z8d4Qm5g==
+"@base-sdk/build@0.1.0-3":
+  version "0.1.0-3"
+  resolved "https://registry.yarnpkg.com/@base-sdk/build/-/build-0.1.0-3.tgz#73363bb2c93361a87dc67abeb1c295faf4abbc0e"
+  integrity sha512-1+KdkIsriFT59+uIc8T5xSYupUCLBCX9Da3EAI5RLZsWgKsmKzhLiUgyRPhar3eH+zS12tFfc1NfYDczlmPbjQ==
   dependencies:
     "@base-sdk/core" "0.1.0"
-    "@base-sdk/hosting" "0.1.0"
+    "@base-sdk/hosting" "0.1.0-1"
     "@base-sdk/url" "0.1.0"
     dart-services "^0.2.3"
 
@@ -20,10 +20,18 @@
     "@reflect-ui/core" "0.0.2-rc.7"
     axios "^0.21.0"
 
-"@base-sdk/hosting@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@base-sdk/hosting/-/hosting-0.1.0.tgz#ecf5aa91f51125ccad1d7821ff48eef74521cb5b"
-  integrity sha512-6u200fa6XJjZSR+dgeONPnhkt8wZCL0pF7TXl62MQ+zqTH/axx6t4T8gEOVM8Llpm0X3jdAbVGRuza+SnS9/Uw==
+"@base-sdk/core@0.1.0-1":
+  version "0.1.0-1"
+  resolved "https://registry.yarnpkg.com/@base-sdk/core/-/core-0.1.0-1.tgz#0cc7102a658caa2e783586f7fb705574711f0072"
+  integrity sha512-FRI5tUq4fr3TU5b077O9gGXrZgAll71wtc+mBPN644xVsntnluMvrbLoCRJd8z5Zp98avkbxkulX8QVoiYFn4g==
+  dependencies:
+    "@reflect-ui/core" "0.0.2-rc.7"
+    axios "^0.21.0"
+
+"@base-sdk/hosting@0.1.0-1":
+  version "0.1.0-1"
+  resolved "https://registry.yarnpkg.com/@base-sdk/hosting/-/hosting-0.1.0-1.tgz#bf16050cadd1c766f0813bc7bb14344b28e9910d"
+  integrity sha512-LX0A17LE0GWt8rozCPIe1cLDlFKojnciAqWeGaib+UvDttTXkxkCksLslch/gcmuzWtfDZtDLbgwNExo9Hvi5w==
   dependencies:
     "@base-sdk/core" "0.1.0"
     form-data "^3.0.0"
@@ -39,6 +47,13 @@
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@base-sdk/url/-/url-0.1.0.tgz#893519151a63048cd5e6d795e8e63518ec717a32"
   integrity sha512-L1icnTJSnDKJbxizdwxkEUxGh4G93rPUQSURn2e3WV6dt+VeT7cGX/zTCp5YBgXrWH5stBn6eKvuYLEIo9jrWw==
+  dependencies:
+    "@base-sdk/core" "0.1.0"
+
+"@base-sdk/url@0.1.0-1":
+  version "0.1.0-1"
+  resolved "https://registry.yarnpkg.com/@base-sdk/url/-/url-0.1.0-1.tgz#47ac3f50955e8df43c90f0efa3878a31e34cbd7c"
+  integrity sha512-39GSoHRiCerEEWtFYH60s4nWP124SEdJjdIarglZmZOsM2VUdEuv3VuOgdh8AK2z0/5jjLBL1n5Fe5n96eE1yg==
   dependencies:
     "@base-sdk/core" "0.1.0"
 
