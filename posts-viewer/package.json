@@ -1,0 +1,27 @@
+{
+  "name": "@base-sdk/posts",
+  "version": "0.1.3",
+  "main": "dist/index.js",
+  "private": true,
+  "scripts": {
+    "prepack": "yarn && tsc"
+  },
+  "dependencies": {
+    "@base-sdk/core": "0.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^15.6.0",
+    "typescript": "^4.2.4"
+  },
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts",
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "LICENSE",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
