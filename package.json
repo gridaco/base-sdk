@@ -1,15 +1,19 @@
 {
-  "name": "@bridged.xyz/base-sdk",
+  "name": "base-sdk",
   "version": "0.0.2-1",
   "description": "bridged's service access api node wrapper",
   "repository": "https://github.com/bridgedxyz/services",
-  "author": "bridged.xyz authors",
+  "authors": [
+    "Grida.co authors",
+    "softmarshmallow <universe@grida.co>"
+  ],
   "license": "MIT",
   "private": true,
   "workspaces": [
     "./[!_]*"
   ],
-  "scripts": {
-    "prepack": "tsc"
+  "scripts": {},
+  "devDependencies": {
+    "lerna": "^4.0.0"
   }
 }

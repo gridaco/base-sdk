@@ -1,6 +1,6 @@
 {
     "name": "@base-sdk-fp/core",
-    "version": "0.0.0",
+    "version": "0.0.3",
     "main": "dist/index.js",
     "private": false,
     "scripts": {
