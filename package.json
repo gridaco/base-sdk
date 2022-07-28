@@ -10,9 +10,13 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "./[!_]*"
+    "sdks/*",
+    "sdks-firstparty/*"
   ],
-  "scripts": {},
+  "scripts": {
+    "build": "lerna run build",
+    "publish:all": "lerna publish"
+  },
   "devDependencies": {
     "lerna": "^5.3.0"
   }
