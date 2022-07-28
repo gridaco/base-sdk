@@ -2,7 +2,7 @@
     "name": "@base-sdk-fp/auth-components-react",
     "description": "First party authenticatoin utilities for ReactJS. the source is public, yet only be modified by Internal BASE Team",
     "authors": "Grida.co",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "main": "dist/index.js",
     "private": false,
     "scripts": {
@@ -10,7 +10,7 @@
         "build": "yarn clean && tsc"
     },
     "dependencies": {
-        "@base-sdk-fp/auth": "0.1.3"
+        "@base-sdk-fp/auth": "0.1.4"
     },
     "peerDependencies": {
         "@emotion/styled": "^11.3.0",
