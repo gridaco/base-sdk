@@ -1,6 +1,6 @@
 {
     "name": "@base-sdk-fp/accounts",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "main": "dist/index.js",
     "private": false,
     "scripts": {
@@ -8,7 +8,7 @@
         "build": "yarn clean && tsc"
     },
     "dependencies": {
-        "@base-sdk-fp/core": "0.1.2",
+        "@base-sdk-fp/core": "0.1.3",
         "@base-sdk/core": "0.1.0-1"
     },
     "peerDependencies": {
