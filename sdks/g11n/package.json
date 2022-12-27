@@ -1,6 +1,6 @@
 {
     "name": "@base-sdk/g11n",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "main": "dist/g11n/index.js",
     "private": false,
     "scripts": {
