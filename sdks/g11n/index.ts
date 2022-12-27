@@ -1,7 +1,7 @@
-import { RawAsset } from "../assets"
+import { RawAsset } from "../assets";
 
-export * from "./validators"
-export * from "./placeholder"
+export * from "./validators";
+export * from "./placeholder";
 
 // export async function initTextGlobalizationWorkingTree(sceneId: string): Promise<TextGlobalizationWorkingTree> {
 //     // load variables with namespace
@@ -10,7 +10,6 @@ export * from "./placeholder"
 
 //     return new TextGlobalizationWorkingTree()
 // }
-
 
 // class TextGlobalizationWorkingTree {
 //     sceneName: string
@@ -25,13 +24,12 @@ export * from "./placeholder"
 //     }
 // }
 
-
 /**
  * Locale interface
  */
 export interface ILocale {
-    languageCode: string
-    countryCode?: string
+    languageCode: string;
+    countryCode?: string;
 }
 
 /**
@@ -42,37 +40,36 @@ export class Locale implements ILocale {
     countryCode?: string;
 
     constructor(props: ILocale) {
-        this.languageCode = props.languageCode
-        this.countryCode = props.countryCode
+        this.languageCode = props.languageCode;
+        this.countryCode = props.countryCode;
     }
 
     /**
      * i.e. returns "en_US" (when both provided) or "en" (only lang code provided)
      */
     toString(): string {
-        return `${this.languageCode}${this.countryCode ? `_${this.countryCode}` : ''}`
+        return `${this.languageCode}${
+            this.countryCode ? `_${this.countryCode}` : ""
+        }`;
     }
 }
-
 
 /**
  *  Map holding locale map data. <K, V>
  *  K = locale string
  *  V = value of locale key
  */
-export type Translations = Map<string, RawAsset>
+export type Translations = Map<string, RawAsset>;
 
 /**
- * 
+ *
  */
 export interface IGlobalizedText {
-    id: string
-    path: string
-    name: string
-    key: IGlobalizedKey
+    id: string;
+    path: string;
+    name: string;
+    key: IGlobalizedKey;
 }
-
-
 
 // export class GlobalizedText implements IGlobalizedText {
 //     id: string;
@@ -107,25 +104,22 @@ export interface IGlobalizedText {
 //     }
 // }
 
-
 /**
- * 
+ *
  */
-export interface IGlobalizedCreateInput {
-
-}
+export interface IGlobalizedCreateInput {}
 
 /**
- * 
+ *
  */
 export interface IGlobalizedKey {
-    id: string
-    key: string
-    translations: Translations
+    id: string;
+    key: string;
+    translations: Translations;
 }
 
 /**
- * 
+ *
  */
 export class GlobalizedKey implements IGlobalizedKey {
     id: string;
@@ -133,52 +127,44 @@ export class GlobalizedKey implements IGlobalizedKey {
     translations: Translations;
 
     constructor(props: IGlobalizedKey) {
-        this.id = props.id
-        this.key = props.key
-        this.translations = props.translations
+        this.id = props.id;
+        this.key = props.key;
+        this.translations = props.translations;
     }
 
-    updateValueFor(locale: string, newValue: string) {
-
-    }
+    updateValueFor(locale: string, newValue: string) {}
 }
-
-
-
 
 /**
- * 
+ *
  */
 export interface IGlobalizedVariable {
-    id: string
-    namespace: string
-    name: string
-    translations: Array<Translations>
+    id: string;
+    namespace: string;
+    name: string;
+    translations: Array<Translations>;
 }
-
 
 export class GlobalizedVariable implements IGlobalizedVariable {
     id: string;
     name: string;
-    namespace: string
+    namespace: string;
     translations: Translations[];
 
     constructor(props: IGlobalizedVariable) {
-        this.id = props.id
-        this.name = props.name
-        this.namespace = props.namespace
-        this.translations = props.translations
+        this.id = props.id;
+        this.name = props.name;
+        this.namespace = props.namespace;
+        this.translations = props.translations;
     }
 }
 
-
 interface IRepository<T> {
-    fetchById(id: string): Promise<T>
+    fetchById(id: string): Promise<T>;
 }
 
-
 /**
- * 
+ *
  */
 // export class GlobalizedKeyRepository implements IRepository<GlobalizedKey>{
 
@@ -196,22 +182,20 @@ interface IRepository<T> {
 //     }
 // }
 
-
 // export class GlobalizedTextRepository implements IRepository<GlobalizedText>{
 //     async fetchById(id: string): Promise<GlobalizedText> {
 //         throw new Error("Method not implemented.");
 //     }
 // }
 
-
 /**
  * design layer and translation key mapping for client side usage.
  * translation contains nested translation data.
  */
 export interface LayerTranslation {
-    sceneId: string,
-    layerId: string,
-    keyId: string
-    projectId: string,
-    translation: IGlobalizedKey
+    sceneId: string;
+    layerId: string;
+    keyId: string;
+    projectId: string;
+    translation: IGlobalizedKey;
 }

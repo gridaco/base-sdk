@@ -1,23 +1,22 @@
 {
-    "name": "@base-sdk/base",
+    "name": "@base-sdk/assets",
     "version": "0.1.4",
     "main": "dist/index.js",
     "private": false,
     "scripts": {
         "clean": "rimraf dist",
-        "build": "yarn clean && tsc"
+        "build": "tsc"
     },
     "dependencies": {
-        "@base-sdk/assets": "0.1.4",
-        "@base-sdk/build": "0.1.4",
-        "@base-sdk/core": "0.1.4",
-        "@base-sdk/hosting": "0.1.2",
-        "@base-sdk/resources": "0.1.4",
-        "@base-sdk/url": "0.1.2"
+        "axios": "^0.21.0",
+        "@base-sdk/core": "0.1.4"
+    },
+    "peerDependencies": {
+        "@reflect-ui/core": "0.0.5"
     },
     "devDependencies": {
+        "@reflect-ui/core": "0.0.5",
         "@types/node": "^15.6.0",
-        "lerna": "^5.3.0",
         "typescript": "^4.2.4"
     },
     "files": [

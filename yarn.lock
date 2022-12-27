@@ -1079,7 +1079,7 @@
     node-addon-api "^3.2.1"
     node-gyp-build "^4.3.0"
 
-"@reflect-ui/core@0.0.2-rc.7", "@reflect-ui/core@0.0.5":
+"@reflect-ui/core@0.0.2-rc.7", "@reflect-ui/core@0.0.5", "@reflect-ui/core@^0.0.10":
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/@reflect-ui/core/-/core-0.0.5.tgz#f50ae00e64300c4b698ab5c5374c6ac3bb5de873"
   integrity sha512-lA6AYHCF8aSyOvGXbJZcmlB5ccxCaznhxvD8Hg1UjVdhcbLhMWDbzoYqbrkqh+R4im3KnYw5n6pWSSdoWioYhA==
