@@ -16,7 +16,7 @@
   "scripts": {
     "clean": "lerna run clean",
     "build": "lerna run build",
-    "publish:all": "lerna publish"
+    "publish:all": "yarn clean && yarn build && lerna publish"
   },
   "resolutions": {
     "@reflect-ui/core": "0.0.5"

@@ -5,6 +5,7 @@ export const PACKAGE_NAME = "@base-sdk/base";
 export * as url from "@base-sdk/url";
 export * as hosting from "@base-sdk/hosting";
 export * as build from "@base-sdk/build";
+export * as g11n from "@base-sdk/g11n";
 export * as projects from "./projects";
 export * as features from "./features";
 export * as assets from "@base-sdk/assets";
