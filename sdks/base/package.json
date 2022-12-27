@@ -1,6 +1,6 @@
 {
     "name": "@base-sdk/base",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "main": "dist/index.js",
     "private": false,
     "scripts": {
@@ -8,11 +8,11 @@
         "build": "yarn clean && tsc"
     },
     "dependencies": {
-        "@base-sdk/assets": "0.1.4",
+        "@base-sdk/assets": "0.1.5",
         "@base-sdk/build": "0.1.4",
-        "@base-sdk/core": "0.1.4",
+        "@base-sdk/core": "0.1.5",
         "@base-sdk/hosting": "0.1.2",
-        "@base-sdk/resources": "0.1.4",
+        "@base-sdk/resources": "0.1.5",
         "@base-sdk/url": "0.1.2"
     },
     "devDependencies": {

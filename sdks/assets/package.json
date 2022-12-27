@@ -1,6 +1,6 @@
 {
     "name": "@base-sdk/assets",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "main": "dist/index.js",
     "private": false,
     "scripts": {
@@ -8,8 +8,8 @@
         "build": "tsc"
     },
     "dependencies": {
-        "axios": "^0.21.0",
-        "@base-sdk/core": "0.1.4"
+        "@base-sdk/core": "0.1.5",
+        "axios": "^0.21.0"
     },
     "peerDependencies": {
         "@reflect-ui/core": "0.0.5"
