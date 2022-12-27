@@ -2,7 +2,7 @@ import { RawAsset } from "../assets";
 
 export * from "./validators";
 export * from "./placeholder";
-
+export * from "./repository";
 // export async function initTextGlobalizationWorkingTree(sceneId: string): Promise<TextGlobalizationWorkingTree> {
 //     // load variables with namespace
 //     // load texts with scene id
