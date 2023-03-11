@@ -15,7 +15,7 @@ export async function compileFlutterApp(props: {
 }): Promise<AppBuildResult> {
     // compile dart source to js
     const compiled = await compileComplete(props.dart);
-    if (!compiled.sucess) {
+    if (!compiled.success) {
         throw `compile failed with error ${JSON.stringify(
             compiled.error,
             null,
