@@ -12,9 +12,9 @@ class LongPollingSource {
     onmessage: (ev: MessageEvent) => void;
 }
 
-const _DEFAULT_POLLING_INTERVAL = 10000; // 10 sec
-const _DEFAULT_POLLING_TIMEOUT = 60000 * 5; // 5 min
-const _DEFAULT_POLLING_INITIAL_DELAY = 15000; // 15 sec
+const _DEFAULT_POLLING_INTERVAL = 3000; // 3 sec
+const _DEFAULT_POLLING_TIMEOUT = 60000 * 10; // 10 min
+const _DEFAULT_POLLING_INITIAL_DELAY = 10000; // 10 sec
 export class LogPollingAuthProxyProc extends AuthProxyProcBase<LongPollingSource> {
     resolve: (result: ProxyAuthResult) => void;
     reject: (reason?: any) => void;
